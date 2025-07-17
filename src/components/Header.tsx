@@ -1,6 +1,7 @@
-import { AppBar, Toolbar, Typography } from '@mui/material'
+import { AppBar, Box, Toolbar, Typography } from '@mui/material'
 
 import LocationIcon from '@/assets/icons/LocationIcon.svg?react'
+import LogoIcon from '@/assets/logo/Logo.svg?react'
 
 const Header = () => {
   return (
@@ -31,7 +32,38 @@ const Header = () => {
             py: '12px',
             minHeight: '40px !important'
           }}
-        ></Toolbar>
+        >
+          <Box
+            sx={{
+              height: '24px',
+              width: '24px',
+              borderRadius: '6px',
+              backgroundColor: 'primary.main',
+              position: 'relative',
+              padding: '8px'
+            }}
+          >
+            <LogoIcon
+              style={{
+                width: '12px',
+                height: '16px',
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)'
+              }}
+            />
+          </Box>
+          <Typography
+            sx={{
+              color: 'primary.main',
+              flexGrow: 1
+            }}
+            variant="h1"
+          >
+            Vikada
+          </Typography>
+        </Toolbar>
       </AppBar>
     </>
   )
