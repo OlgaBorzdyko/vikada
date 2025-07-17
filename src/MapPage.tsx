@@ -1,9 +1,13 @@
+import { Container } from '@mui/material'
+
 import Header from './components/Header'
 
 const MapPage = () => {
   return (
     <>
-      <Header />
+      <Container>
+        <Header />
+      </Container>
     </>
   )
 }

@@ -39,9 +39,13 @@ const theme = createTheme({
 
   components: {
     MuiContainer: {
+      defaultProps: {
+        maxWidth: false,
+        disableGutters: true
+      },
       styleOverrides: {
         root: {
-          padding: '10px 72px 42px'
+          padding: '0 72px 42px 72px'
         }
       }
     }
