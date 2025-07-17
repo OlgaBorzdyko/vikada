@@ -25,6 +25,13 @@ const Header = () => {
             Москва и область
           </Typography>
         </Toolbar>
+        <Toolbar
+          sx={{
+            px: '72px',
+            py: '12px',
+            minHeight: '40px !important'
+          }}
+        ></Toolbar>
       </AppBar>
     </>
   )
