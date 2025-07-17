@@ -1,13 +1,13 @@
 import { CssBaseline, ThemeProvider } from '@mui/material'
 
-import Test from './src/test'
+import MapPage from './src/MapPage'
 import theme from './theme'
 
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Test />
+      <MapPage />
     </ThemeProvider>
   )
 }
