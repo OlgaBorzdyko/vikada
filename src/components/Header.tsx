@@ -1,4 +1,4 @@
-import { AppBar, Box, Toolbar, Typography } from '@mui/material'
+import { AppBar, Box, Button, Toolbar, Typography } from '@mui/material'
 
 import LocationIcon from '@/assets/icons/LocationIcon.svg?react'
 import LogoIcon from '@/assets/logo/Logo.svg?react'
@@ -57,12 +57,19 @@ const Header = () => {
           <Typography
             sx={{
               color: 'primary.main',
-              flexGrow: 1
+              flexGrow: 2
             }}
             variant="h1"
           >
             Vikada
           </Typography>
+          <Box display="flex" gap={2}>
+            <Button variant="text">Главная</Button>
+            <Button variant="text">Объявления</Button>
+            <Button variant="text">Группы</Button>
+            <Button variant="text">О нас</Button>
+            <Button variant="contained">Екатерина</Button>
+          </Box>
         </Toolbar>
       </AppBar>
     </>
