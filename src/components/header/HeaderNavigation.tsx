@@ -1,6 +1,8 @@
-import { Box, Button, Link, Toolbar, Typography } from '@mui/material'
+import { Box, Link, Toolbar, Typography } from '@mui/material'
 
 import LogoIcon from '@/assets/logo/Logo.svg?react'
+
+import ProfileButton from '../profile/ProfileButton'
 
 const HeaderNavigation = () => {
   return (
@@ -68,7 +70,7 @@ const HeaderNavigation = () => {
           </Link>
         </Box>
         <Box>
-          <Button variant="contained">Екатерина</Button>
+          <ProfileButton />
         </Box>
       </Toolbar>
     </>
