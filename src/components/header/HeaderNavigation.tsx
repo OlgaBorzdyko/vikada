@@ -7,44 +7,51 @@ const HeaderNavigation = () => {
     <>
       <Toolbar
         sx={{
-          minHeight: '40px !important'
+          minHeight: '40px !important',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center'
         }}
       >
-        <Box
-          sx={{
-            height: '24px',
-            width: '24px',
-            borderRadius: '6px',
-            backgroundColor: 'primary.main',
-            position: 'relative',
-            padding: '8px'
-          }}
-        >
-          <LogoIcon
-            style={{
-              width: '12px',
-              height: '16px',
-              position: 'absolute',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)'
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+          <Box
+            sx={{
+              height: '24px',
+              width: '24px',
+              borderRadius: '6px',
+              backgroundColor: 'primary.main',
+              position: 'relative',
+              padding: '8px'
             }}
-          />
+          >
+            <LogoIcon
+              style={{
+                width: '12px',
+                height: '16px',
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)'
+              }}
+            />
+          </Box>
+          <Typography
+            sx={{
+              color: 'primary.main',
+              flexGrow: 2
+            }}
+            variant="h1"
+          >
+            Vikada
+          </Typography>
         </Box>
-        <Typography
-          sx={{
-            color: 'primary.main',
-            flexGrow: 2
-          }}
-          variant="h1"
-        >
-          Vikada
-        </Typography>
-        <Box display="flex" gap={2}>
+        <Box sx={{ display: 'flex', gap: 2 }}>
           <Button variant="text">Главная</Button>
           <Button variant="text">Объявления</Button>
           <Button variant="text">Группы</Button>
           <Button variant="text">О нас</Button>
+        </Box>
+        <Box>
           <Button variant="contained">Екатерина</Button>
         </Box>
       </Toolbar>
