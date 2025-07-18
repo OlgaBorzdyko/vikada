@@ -4,7 +4,7 @@ const ProfileButton = () => {
   return (
     <Button
       sx={(theme) => ({
-        ...theme.typography.body1,
+        ...theme.typography.h1,
         color: theme.palette.text.primary,
         borderRadius: '12px',
         backgroundColor: 'transparent',
