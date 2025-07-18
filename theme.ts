@@ -45,7 +45,8 @@ const theme = createTheme({
       },
       styleOverrides: {
         root: {
-          padding: '0 72px 42px 72px'
+          padding: '0 72px 42px 72px',
+          boxSizing: 'border-box'
         }
       }
     },

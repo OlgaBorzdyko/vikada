@@ -32,7 +32,7 @@ const MapComponent = () => {
       ref={mapRef}
       style={{
         width: '100%',
-        height: '720px',
+        height: 'calc(100vh - 221.33px)',
         borderRadius: 12,
         overflow: 'hidden'
       }}
