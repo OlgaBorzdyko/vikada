@@ -8,7 +8,11 @@ const MapPage = () => {
     <>
       <Container>
         <Header />
-        <Breadcrumbs aria-label="breadcrumb" separator="›">
+        <Breadcrumbs
+          aria-label="breadcrumb"
+          separator="›"
+          sx={{ paddingBottom: '24px' }}
+        >
           <Link href="/">
             <Typography color="text.secondary">Главная</Typography>
           </Link>

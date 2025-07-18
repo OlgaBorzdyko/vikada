@@ -12,7 +12,8 @@ const HeaderNavigation = () => {
           minHeight: '40px !important',
           display: 'flex',
           justifyContent: 'space-between',
-          alignItems: 'center'
+          alignItems: 'center',
+          padding: '22px 0 44px'
         }}
       >
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
