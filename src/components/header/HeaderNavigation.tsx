@@ -7,8 +7,6 @@ const HeaderNavigation = () => {
     <>
       <Toolbar
         sx={{
-          px: '72px',
-          py: '12px',
           minHeight: '40px !important'
         }}
       >

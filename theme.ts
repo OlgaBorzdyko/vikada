@@ -48,6 +48,11 @@ const theme = createTheme({
           padding: '0 72px 42px 72px'
         }
       }
+    },
+    MuiToolbar: {
+      defaultProps: {
+        disableGutters: true
+      }
     }
   },
 
