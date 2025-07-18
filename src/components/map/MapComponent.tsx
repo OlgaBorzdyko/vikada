@@ -27,7 +27,17 @@ const MapComponent = () => {
     })
     mapInstanceRef.current = map
   }, [])
-  return <div ref={mapRef} style={{ width: '100%', height: '750px' }} />
+  return (
+    <div
+      ref={mapRef}
+      style={{
+        width: '100%',
+        height: '720px',
+        borderRadius: 12,
+        overflow: 'hidden'
+      }}
+    />
+  )
 }
 
 export default MapComponent
