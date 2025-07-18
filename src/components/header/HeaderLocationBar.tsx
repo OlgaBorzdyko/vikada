@@ -7,13 +7,13 @@ const HeaderLocationBar = () => {
     <>
       <Toolbar
         sx={{
-          px: '72px',
-          py: '12px',
           minHeight: '32px !important',
           borderBottom: '1px solid #E1E1E1'
         }}
       >
-        <LocationIcon style={{ width: '12.67px', height: '12.67px' }} />
+        <LocationIcon
+          style={{ width: '12.67px', height: '12.67px', paddingRight: '2px' }}
+        />
         <Typography
           sx={{
             color: 'primary',
