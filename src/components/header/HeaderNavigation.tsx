@@ -1,4 +1,4 @@
-import { Box, Button, Toolbar, Typography } from '@mui/material'
+import { Box, Button, Link, Toolbar, Typography } from '@mui/material'
 
 import LogoIcon from '@/assets/logo/Logo.svg?react'
 
@@ -45,11 +45,27 @@ const HeaderNavigation = () => {
             Vikada
           </Typography>
         </Box>
-        <Box sx={{ display: 'flex', gap: 2 }}>
-          <Button variant="text">Главная</Button>
-          <Button variant="text">Объявления</Button>
-          <Button variant="text">Группы</Button>
-          <Button variant="text">О нас</Button>
+        <Box sx={{ display: 'flex', gap: 5 }}>
+          <Link href="/" underline="none">
+            <Typography color="text.primary" variant="h1">
+              Главная
+            </Typography>
+          </Link>
+          <Link href="/" underline="none">
+            <Typography color="text.primary" variant="h1">
+              Объявления
+            </Typography>
+          </Link>
+          <Link href="/" underline="none">
+            <Typography color="text.primary" variant="h1">
+              Группы
+            </Typography>
+          </Link>
+          <Link href="/" underline="none">
+            <Typography color="text.primary" variant="h1">
+              О нас
+            </Typography>
+          </Link>
         </Box>
         <Box>
           <Button variant="contained">Екатерина</Button>
