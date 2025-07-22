@@ -13,6 +13,9 @@ export const TagInfoArray = [
       '/gum1.jpg',
       '/gum1.jpg',
       '/gum1.jpg',
+      '/gum1.jpg',
+      '/gum1.jpg',
+      '/gum1.jpg',
       '/gum1.jpg'
     ],
     address: 'Красная площадь, 3, Москва',

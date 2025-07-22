@@ -7,17 +7,16 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 const ImagesSwiper = ({ images }: { images: string[] }) => {
   return (
     <>
-      <Swiper modules={[Navigation]} navigation={true} slidesPerView={6}>
+      <Swiper modules={[Navigation]} navigation={true} slidesPerView={7}>
         {images.map((src, index) => (
           <SwiperSlide key={index}>
             <img
               alt=""
               src={src}
               style={{
-                width: '100px',
-                height: '100px',
-                borderRadius: '12px',
-                padding: '1px'
+                width: '80px',
+                height: '80px',
+                borderRadius: '12px'
               }}
             />
           </SwiperSlide>
