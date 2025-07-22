@@ -1,5 +1,6 @@
 import { Box, Typography } from '@mui/material'
 
+import ImagesSwiper from './ImagesSwiper'
 import { TagInfoArray } from './TagInfoArray'
 
 type ItemData = {
@@ -19,21 +20,7 @@ const TagMainInfo = () => {
           <Box key={index}>
             <Typography variant="h2">{item.title}</Typography>
             <Typography variant="body1">{item.description}</Typography>
-            <Box>
-              {item.img.map((src, i) => (
-                <img
-                  alt={item.title}
-                  key={i}
-                  src={src}
-                  style={{
-                    width: '100px',
-                    height: '100px',
-                    borderRadius: '12px',
-                    padding: '1px'
-                  }}
-                />
-              ))}
-            </Box>
+            <ImagesSwiper images={item.img} />
             {item.address}
             {item.webSite}
             {item.openingHours}

@@ -1,17 +1,27 @@
 import 'swiper/css'
 import 'swiper/css/navigation'
-import './styles.css'
 
 import { Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-const ImagesSwiper = () => {
+const ImagesSwiper = ({ images }: { images: string[] }) => {
   return (
     <>
-      <Swiper className="mySwiper" modules={[Navigation]} navigation={true}>
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
+      <Swiper modules={[Navigation]} navigation={true}>
+        {images.map((src, index) => (
+          <SwiperSlide key={index}>
+            <img
+              alt=""
+              src={src}
+              style={{
+                width: '100px',
+                height: '100px',
+                borderRadius: '12px',
+                padding: '1px'
+              }}
+            />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </>
   )
