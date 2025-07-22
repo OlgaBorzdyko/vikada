@@ -13,7 +13,7 @@ const InfoBar = ({
       <StyledButton onClick={() => setIsOpen(!isOpen)}>
         Поле поиска тега
       </StyledButton>
-      <BarWrapper isOpen={isOpen}>Информация об экскурсиях</BarWrapper>
+      <BarWrapper isOpen={isOpen}>Выбранное место</BarWrapper>
     </>
   )
 }
