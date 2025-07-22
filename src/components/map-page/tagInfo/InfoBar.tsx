@@ -25,8 +25,8 @@ const BarWrapper = styled.div`
   height: ${({ isOpen }) => (isOpen ? 'calc(100vh - 221.33px)' : 0)};
   z-index: ${({ isOpen }) => (isOpen ? '99' : -1)};
   transition: opacity 0.3s ease, height 0.3s ease-in-out;
-  background-color: pink;
-  border-radius: 12px;
+  background-color: ${({ theme }) => theme.palette.background.default};
+  border-radius: 0 12px 12px 0;
 `
 
 const StyledButton = styled.button`
