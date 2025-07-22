@@ -3,6 +3,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import TagMainInfo from './TagMainInfo'
+import ToursList from './ToursList'
 
 const InfoBar = ({
   isOpen,
@@ -20,6 +21,7 @@ const InfoBar = ({
         <Box sx={{ padding: '20px' }}>
           <p>Выбранное место</p>
           <TagMainInfo />
+          <ToursList />
         </Box>
       </BarWrapper>
     </>
