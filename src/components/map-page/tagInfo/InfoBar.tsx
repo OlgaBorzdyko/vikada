@@ -21,7 +21,7 @@ const InfoBar = ({
 const BarWrapper = styled.div`
   position: absolute;
   right: 0;
-  width: 50%;
+  width: 40.97%;
   height: ${({ isOpen }) => (isOpen ? 'calc(100vh - 221.33px)' : 0)};
   opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
   z-index: ${({ isOpen }) => (isOpen ? '99' : -1)};
