@@ -6,13 +6,7 @@ const ToursList = () => {
   return (
     <div>
       {TagInfoArray.map((item, index) => (
-        <Box
-          key={index}
-          sx={{
-            maxHeight: '400px',
-            overflowY: 'auto'
-          }}
-        >
+        <Box key={index}>
           <Box display="flex" flexDirection="column" gap={1}>
             {item.tours?.map((tour, i) => (
               <Box key={i}>

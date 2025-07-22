@@ -39,6 +39,8 @@ const BarWrapper = styled.div`
   background-color: ${({ theme }) => theme.palette.background.default};
   border-radius: 0 12px 12px 0;
   border: 1px solid #e1e1e1;
+  overflow-y: scroll;
+  overflow-x: hidden;
 `
 
 const StyledButton = styled.button`
