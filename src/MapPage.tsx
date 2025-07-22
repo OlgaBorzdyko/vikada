@@ -1,11 +1,14 @@
 import { Breadcrumbs, Container, Link, Typography } from '@mui/material'
+import { useState } from 'react'
 
 import Header from './components/Header'
 import MapComponent from './components/map-page/map/MapComponent'
+import TagInfoComponent from './components/map-page/tagInfo/TagInfoComponent'
 
 const MapPage = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false)
   return (
-    <>
+    <div style={{ position: 'relative' }}>
       <Container>
         <Header />
         <Breadcrumbs
@@ -18,9 +21,12 @@ const MapPage = () => {
           </Link>
           <Typography color="text.secondary">Карты</Typography>
         </Breadcrumbs>
-        <MapComponent />
+        <div style={{ position: 'relative' }}>
+          <MapComponent />
+          <TagInfoComponent isOpen={isOpen} setIsOpen={setIsOpen} />
+        </div>
       </Container>
-    </>
+    </div>
   )
 }
 export default MapPage
