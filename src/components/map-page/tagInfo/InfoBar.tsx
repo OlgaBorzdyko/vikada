@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import TagMainInfo from './TagMainInfo'
+
 const InfoBar = ({
   isOpen,
   setIsOpen
@@ -13,7 +15,10 @@ const InfoBar = ({
       <StyledButton onClick={() => setIsOpen(!isOpen)}>
         Поле поиска тега
       </StyledButton>
-      <BarWrapper isOpen={isOpen}>Выбранное место</BarWrapper>
+      <BarWrapper isOpen={isOpen}>
+        <p>Выбранное место</p>
+        <TagMainInfo />
+      </BarWrapper>
     </>
   )
 }
