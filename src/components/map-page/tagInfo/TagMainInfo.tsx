@@ -22,10 +22,14 @@ const TagMainInfo = () => {
             <Typography variant="h2">{item.title}</Typography>
             <Typography variant="body1">{item.description}</Typography>
             <ImagesSwiper images={item.img} />
-            {item.address}
-            {item.phoneNumber}
-            {item.webSite}
-            {item.openingHours}
+            <Box display="flex" flexDirection="column" gap={1}>
+              <Box display="flex" justifyContent="space-between">
+                <Typography variant="body1">{item.address}</Typography>
+                <Typography variant="body1">{item.phoneNumber}</Typography>
+              </Box>
+              <Typography variant="body1">{item.webSite}</Typography>
+              <Typography variant="body1">{item.openingHours}</Typography>
+            </Box>
           </Box>
         )
       })}
