@@ -27,6 +27,7 @@ const BarWrapper = styled.div`
   transition: opacity 0.3s ease, height 0.3s ease-in-out;
   background-color: ${({ theme }) => theme.palette.background.default};
   border-radius: 0 12px 12px 0;
+  border: 1px solid #e1e1e1;
 `
 
 const StyledButton = styled.button`
