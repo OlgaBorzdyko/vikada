@@ -5,7 +5,7 @@ import { TagInfoArray } from './TagInfoArray'
 type ItemData = {
   title: string
   description: string
-  img: string
+  img: []
   address: string
   webSite: string
   openingHours: string
@@ -19,15 +19,20 @@ const TagMainInfo = () => {
           <Box key={index}>
             <Typography variant="h2">{item.title}</Typography>
             <Typography variant="body1">{item.description}</Typography>
-            <img
-              alt={item.title}
-              src={item.img}
-              style={{
-                width: '100px',
-                height: '100px',
-                borderRadius: '12px'
-              }}
-            />
+            <Box>
+              {item.img.map((src, i) => (
+                <img
+                  alt={item.title}
+                  key={i}
+                  src={src}
+                  style={{
+                    width: '100px',
+                    height: '100px',
+                    borderRadius: '12px'
+                  }}
+                />
+              ))}
+            </Box>
             {item.address}
             {item.webSite}
             {item.openingHours}
