@@ -1,7 +1,7 @@
 import { Breadcrumbs, Container, Link, Typography } from '@mui/material'
 
 import Header from './components/Header'
-import MapComponent from './components/map/MapComponent'
+import MapComponent from './components/map-page/map/MapComponent'
 
 const MapPage = () => {
   return (
