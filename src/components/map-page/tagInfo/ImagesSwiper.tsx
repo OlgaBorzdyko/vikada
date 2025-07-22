@@ -1,13 +1,12 @@
 import 'swiper/css'
 import 'swiper/css/navigation'
-
 import { Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 const ImagesSwiper = ({ images }: { images: string[] }) => {
   return (
     <>
-      <Swiper modules={[Navigation]} navigation={true}>
+      <Swiper modules={[Navigation]} navigation={true} slidesPerView={6}>
         {images.map((src, index) => (
           <SwiperSlide key={index}>
             <img
