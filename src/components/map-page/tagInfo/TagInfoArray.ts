@@ -19,6 +19,7 @@ export const TagInfoArray = [
       '/gum1.jpg'
     ],
     address: 'Красная площадь, 3, Москва',
+    phoneNumber: '0123456789',
     webSite: 'gum.ru',
     openingHours: 'Открыто до 22:00',
     tours: [

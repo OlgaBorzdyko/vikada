@@ -8,6 +8,7 @@ type ItemData = {
   description: string
   img: string[]
   address: string
+  phoneNumber: string
   webSite: string
   openingHours: string
 }
@@ -22,6 +23,7 @@ const TagMainInfo = () => {
             <Typography variant="body1">{item.description}</Typography>
             <ImagesSwiper images={item.img} />
             {item.address}
+            {item.phoneNumber}
             {item.webSite}
             {item.openingHours}
           </Box>
