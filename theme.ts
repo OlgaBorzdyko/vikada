@@ -30,9 +30,9 @@ const theme = createTheme({
       lineHeight: '24px'
     },
     h2: {
-      fontSize: '20px',
+      fontSize: '16px',
       fontWeight: 500,
-      lineHeight: '16px',
+      lineHeight: '20px',
       letterSpacing: '.15px'
     },
     h3: {
