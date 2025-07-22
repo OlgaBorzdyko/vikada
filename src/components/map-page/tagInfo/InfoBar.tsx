@@ -1,3 +1,4 @@
+import Box from '@mui/material/Box'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -16,8 +17,10 @@ const InfoBar = ({
         Поле поиска тега
       </StyledButton>
       <BarWrapper isOpen={isOpen}>
-        <p>Выбранное место</p>
-        <TagMainInfo />
+        <Box sx={{ padding: '20px' }}>
+          <p>Выбранное место</p>
+          <TagMainInfo />
+        </Box>
       </BarWrapper>
     </>
   )
