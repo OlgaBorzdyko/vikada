@@ -5,7 +5,7 @@ import { TagInfoArray } from './TagInfoArray'
 type ItemData = {
   title: string
   description: string
-  img: []
+  img: string[]
   address: string
   webSite: string
   openingHours: string
@@ -28,7 +28,8 @@ const TagMainInfo = () => {
                   style={{
                     width: '100px',
                     height: '100px',
-                    borderRadius: '12px'
+                    borderRadius: '12px',
+                    padding: '1px'
                   }}
                 />
               ))}
