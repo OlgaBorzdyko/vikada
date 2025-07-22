@@ -34,6 +34,11 @@ const theme = createTheme({
       fontWeight: 500,
       lineHeight: '16px',
       letterSpacing: '.15px'
+    },
+    h3: {
+      fontSize: '20px',
+      fontWeight: 700,
+      lineHeight: '24px'
     }
   },
 

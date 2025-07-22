@@ -19,7 +19,7 @@ const TagMainInfo = () => {
       {TagInfoArray.map((item: ItemData, index: number) => {
         return (
           <Box key={index}>
-            <Typography variant="h2">{item.title}</Typography>
+            <Typography variant="h3">{item.title}</Typography>
             <Typography variant="body1">{item.description}</Typography>
             <ImagesSwiper images={item.img} />
             <Box display="flex" flexDirection="column" gap={1}>
