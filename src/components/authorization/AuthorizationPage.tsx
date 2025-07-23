@@ -9,7 +9,11 @@ const AuthorizationPage = () => {
         height: '100vh'
       }}
     >
-      <Typography>Авторизация</Typography>
+      <Typography>Добро пожаловать в Vikada</Typography>
+      <Typography>
+        Ваш билет в мир увлечений и новых знакомств - откройте яркие моменты
+        вместе с нами!
+      </Typography>
     </Box>
   )
 }
