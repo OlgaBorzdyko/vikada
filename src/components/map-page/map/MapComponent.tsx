@@ -21,11 +21,19 @@ const MapComponent = () => {
         })
       ],
       view: new View({
-        center: fromLonLat([37.6173, 55.7558]),
-        zoom: 10
+        center: fromLonLat([37.620393, 55.75396]),
+        zoom: 16
       })
     })
-    mapInstanceRef.current = map
+    map.once('postrender', () => {
+      const size = map.getSize()
+      if (!size) return
+      const topLeft = map.getCoordinateFromPixel([0, 0])
+      const bottomRight = map.getCoordinateFromPixel([size[0], size[1]])
+
+      console.log('Top-left (lon/lat):', topLeft)
+      console.log('Bottom-right (lon/lat):', bottomRight)
+    })
   }, [])
   return (
     <div
