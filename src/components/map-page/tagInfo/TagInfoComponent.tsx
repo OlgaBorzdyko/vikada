@@ -19,10 +19,13 @@ const TagInfoComponent = ({
         width: '100%',
         height: '100%',
         zIndex: 1000,
-        overflow: 'hidden'
+        overflow: 'hidden',
+        pointerEvents: 'none'
       }}
     >
-      <InfoBar isOpen={isOpen} setIsOpen={setIsOpen} />
+      <Box sx={{ pointerEvents: 'auto' }}>
+        <InfoBar isOpen={isOpen} setIsOpen={setIsOpen} />
+      </Box>
     </Box>
   )
 }

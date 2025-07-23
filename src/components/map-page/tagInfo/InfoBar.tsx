@@ -45,6 +45,7 @@ const BarWrapper = styled.div`
 
 const StyledButton = styled.button`
   position: absolute;
+  left: 10%;
 `
 
 export default InfoBar
