@@ -5,9 +5,7 @@ export const itemData = [
   },
   {
     img: '/Frame3.png',
-    title: 'Frame3',
-    rows: 2,
-    cols: 2
+    title: 'Frame3'
   },
   {
     img: '/Frame2.png',
@@ -15,8 +13,7 @@ export const itemData = [
   },
   {
     img: '/Frame4.png',
-    title: 'Frame4',
-    cols: 2
+    title: 'Frame4'
   },
   {
     img: '/Frame5.png',

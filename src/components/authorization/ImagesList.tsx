@@ -1,42 +1,33 @@
-import ImageList from '@mui/material/ImageList'
-import ImageListItem from '@mui/material/ImageListItem'
+import { Box } from '@mui/material'
 
 import { itemData } from './imagesArray'
 
 const ImagesList = () => {
   return (
-    <ImageList
-      cols={3}
-      rowHeight={183}
+    <Box
       sx={{
-        width: 'auto',
-        height: 'auto',
-        '& .MuiImageListItem-root': {
-          padding: '12px'
-        }
+        display: 'grid',
+        gridTemplateColumns: 'repeat(3, 1fr)',
+        gridTemplateRows: 'repeat(2, 1fr)'
       }}
-      variant="quilted"
     >
       {itemData.map((item) => (
-        <ImageListItem
-          cols={item.cols || 1}
-          key={item.img}
-          rows={item.rows || 1}
-        >
-          <img
+        <Box key={item.img} sx={{}}>
+          <Box
             alt={item.title}
+            component="img"
             loading="lazy"
             src={item.img}
-            style={{
-              width: '100%',
-              height: '100%',
+            sx={{
+              maxWidth: '100%',
+              maxHeight: '100%',
               objectFit: 'contain',
               display: 'block'
             }}
           />
-        </ImageListItem>
+        </Box>
       ))}
-    </ImageList>
+    </Box>
   )
 }
 export default ImagesList
