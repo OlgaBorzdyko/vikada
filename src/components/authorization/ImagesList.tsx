@@ -15,9 +15,9 @@ function srcset(image: string, size: number, rows = 1, cols = 1) {
 const ImagesList = () => {
   return (
     <ImageList
-      cols={4}
-      rowHeight={121}
-      sx={{ width: 500, height: 450 }}
+      cols={3}
+      rowHeight={183}
+      sx={{ width: 'auto', height: 'auto' }}
       variant="quilted"
     >
       {itemData.map((item) => (

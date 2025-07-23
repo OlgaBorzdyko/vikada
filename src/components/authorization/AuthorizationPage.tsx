@@ -16,7 +16,9 @@ const AuthorizationPage = () => {
         Ваш билет в мир увлечений и новых знакомств - откройте яркие моменты
         вместе с нами!
       </Typography>
-      <ImagesList />
+      <Box sx={{ width: '50%', padding: '72px' }}>
+        <ImagesList />
+      </Box>
     </Box>
   )
 }

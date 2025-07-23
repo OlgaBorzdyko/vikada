@@ -1,7 +1,11 @@
 export const itemData = [
   {
     img: '/Frame1.png',
-    title: 'Frame1',
+    title: 'Frame1'
+  },
+  {
+    img: '/Frame3.png',
+    title: 'Frame3',
     rows: 2,
     cols: 2
   },
@@ -10,17 +14,12 @@ export const itemData = [
     title: 'Frame2'
   },
   {
-    img: '/Frame3.png',
-    title: 'Frame3'
-  },
-  {
     img: '/Frame4.png',
     title: 'Frame4',
     cols: 2
   },
   {
     img: '/Frame5.png',
-    title: 'Frame5',
-    cols: 2
+    title: 'Frame5'
   }
 ]
