@@ -1,13 +1,16 @@
 import { CssBaseline, ThemeProvider } from '@mui/material'
+import { BrowserRouter } from 'react-router-dom'
 
-import MapPage from './src/MapPage'
+import AppRoutes from './routes'
 import theme from './theme'
 
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
       <CssBaseline />
-      <MapPage />
     </ThemeProvider>
   )
 }
