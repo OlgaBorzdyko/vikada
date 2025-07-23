@@ -1,5 +1,7 @@
 import { Box, Typography, useTheme } from '@mui/material'
 
+import ImagesList from './ImagesList'
+
 const AuthorizationPage = () => {
   const theme = useTheme()
   return (
@@ -14,6 +16,7 @@ const AuthorizationPage = () => {
         Ваш билет в мир увлечений и новых знакомств - откройте яркие моменты
         вместе с нами!
       </Typography>
+      <ImagesList />
     </Box>
   )
 }
