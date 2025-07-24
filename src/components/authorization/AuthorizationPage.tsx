@@ -21,7 +21,14 @@ const AuthorizationPage = () => {
       >
         Добро пожаловать в Vikada
       </Typography>
-      <Typography>
+      <Typography
+        sx={{
+          fontSize: '24px',
+          lineHeight: '100%',
+          fontWeight: 400,
+          color: theme.palette.background.default
+        }}
+      >
         Ваш билет в мир увлечений и новых знакомств - откройте яркие моменты
         вместе с нами!
       </Typography>
