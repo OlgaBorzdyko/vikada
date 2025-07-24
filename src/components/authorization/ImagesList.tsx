@@ -1,3 +1,4 @@
+import Box from '@mui/material/Box'
 import ImageList from '@mui/material/ImageList'
 import ImageListItem from '@mui/material/ImageListItem'
 
@@ -13,21 +14,24 @@ const ImagesList = () => {
     }
   }
   return (
-    <ImageList cols={3} gap={12} sx={{ width: '100%' }} variant="standard">
-      {itemData.map((item) => (
-        <ImageListItem
-          cols={item.cols || 1}
-          key={item.img}
-          rows={item.rows || 1}
-        >
-          <img
-            {...srcset(item.img, 121, item.rows, item.cols)}
-            alt={item.title}
-            loading="lazy"
-          />
-        </ImageListItem>
-      ))}
-    </ImageList>
+    <Box>
+      <ImageList cols={3} gap={12} rowHeight={183} variant="quilted">
+        {itemData.map((item) => (
+          <ImageListItem
+            cols={item.cols || 1}
+            key={item.img}
+            rows={item.rows || 1}
+          >
+            <img
+              {...srcset(item.img, 121, item.rows, item.cols)}
+              alt={item.title}
+              loading="lazy"
+            />
+          </ImageListItem>
+        ))}
+      </ImageList>
+    </Box>
   )
 }
+
 export default ImagesList

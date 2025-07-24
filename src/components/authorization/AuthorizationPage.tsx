@@ -8,7 +8,9 @@ const AuthorizationPage = () => {
     <Box
       sx={{
         background: `linear-gradient(to left, white 50%, ${theme.palette.primary.main} 50%)`,
-        height: '100vh'
+        height: '100vh',
+        paddingX: '5vw',
+        paddingY: '14.26vh'
       }}
     >
       <Box
@@ -17,10 +19,8 @@ const AuthorizationPage = () => {
           flexDirection: 'column',
           gap: 4,
           width: '50%',
-          paddingTop: '146px',
-          paddingLeft: '72px',
-          paddingRight: '72px',
-          paddingBottom: '146px'
+          height: 'auto',
+          paddingRight: '5vw'
         }}
       >
         <Typography
@@ -44,11 +44,7 @@ const AuthorizationPage = () => {
           Ваш билет в мир увлечений и новых знакомств - откройте яркие моменты
           вместе с нами!
         </Typography>
-        <Box
-          sx={{
-            width: '50%'
-          }}
-        >
+        <Box sx={{}}>
           <ImagesList />
         </Box>
       </Box>
