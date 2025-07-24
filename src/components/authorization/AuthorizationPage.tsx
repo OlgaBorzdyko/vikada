@@ -11,37 +11,46 @@ const AuthorizationPage = () => {
         height: '100vh'
       }}
     >
-      <Typography
-        sx={{
-          fontSize: '40px',
-          lineHeight: '100%',
-          fontWeight: 700,
-          color: theme.palette.background.default
-        }}
-      >
-        Добро пожаловать в Vikada
-      </Typography>
-      <Typography
-        sx={{
-          fontSize: '24px',
-          lineHeight: '100%',
-          fontWeight: 400,
-          color: theme.palette.background.default
-        }}
-      >
-        Ваш билет в мир увлечений и новых знакомств - откройте яркие моменты
-        вместе с нами!
-      </Typography>
       <Box
         sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 4,
           width: '50%',
+          paddingTop: '146px',
           paddingLeft: '72px',
           paddingRight: '72px',
-          paddingBottom: '146px',
-          paddingTop: '40px'
+          paddingBottom: '146px'
         }}
       >
-        <ImagesList />
+        <Typography
+          sx={{
+            fontSize: '40px',
+            lineHeight: '100%',
+            fontWeight: 700,
+            color: theme.palette.background.default
+          }}
+        >
+          Добро пожаловать в Vikada
+        </Typography>
+        <Typography
+          sx={{
+            fontSize: '24px',
+            lineHeight: '100%',
+            fontWeight: 400,
+            color: theme.palette.background.default
+          }}
+        >
+          Ваш билет в мир увлечений и новых знакомств - откройте яркие моменты
+          вместе с нами!
+        </Typography>
+        <Box
+          sx={{
+            width: '50%'
+          }}
+        >
+          <ImagesList />
+        </Box>
       </Box>
     </Box>
   )
