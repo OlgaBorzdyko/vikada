@@ -1,5 +1,6 @@
 import { Box, Typography, useTheme } from '@mui/material'
 
+import AuthForm from './AuthForm'
 import ImagesList from './ImagesList'
 
 const AuthorizationPage = () => {
@@ -47,6 +48,9 @@ const AuthorizationPage = () => {
         <Box sx={{}}>
           <ImagesList />
         </Box>
+      </Box>
+      <Box>
+        <AuthForm />
       </Box>
     </Box>
   )
