@@ -26,6 +26,7 @@ const ImagesList = () => {
               {...srcset(item.img, 121, item.rows, item.cols)}
               alt={item.title}
               loading="lazy"
+              style={{ borderRadius: '12px' }}
             />
           </ImageListItem>
         ))}
