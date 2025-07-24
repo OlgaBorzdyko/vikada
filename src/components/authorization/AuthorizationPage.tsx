@@ -49,7 +49,15 @@ const AuthorizationPage = () => {
           <ImagesList />
         </Box>
       </Box>
-      <Box>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          width: '50%',
+          marginLeft: '50%',
+          height: 'auto'
+        }}
+      >
         <AuthForm />
       </Box>
     </Box>
