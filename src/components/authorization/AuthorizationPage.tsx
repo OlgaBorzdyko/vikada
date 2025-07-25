@@ -2,6 +2,7 @@ import { Box, Typography, useTheme } from '@mui/material'
 
 import AuthForm from './AuthForm'
 import ImagesList from './ImagesList'
+import RegistrationForm from './RegistrationForm'
 
 const AuthorizationPage = () => {
   const theme = useTheme()
@@ -11,7 +12,9 @@ const AuthorizationPage = () => {
         background: `linear-gradient(to left, white 50%, ${theme.palette.primary.main} 50%)`,
         height: '100vh',
         paddingX: '5vw',
-        paddingY: '14.26vh'
+        paddingY: '14.26vh',
+        display: 'flex',
+        flexDirection: 'row'
       }}
     >
       <Box
@@ -59,6 +62,7 @@ const AuthorizationPage = () => {
         }}
       >
         <AuthForm />
+        <RegistrationForm />
       </Box>
     </Box>
   )
