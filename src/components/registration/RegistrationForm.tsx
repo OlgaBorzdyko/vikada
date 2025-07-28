@@ -8,6 +8,8 @@ import {
 } from '@mui/material'
 import { FC, useState } from 'react'
 
+import { registrationSchema } from './RegistrationSchema'
+
 interface RegistrationFormData {
   name: string
   lastName: string
@@ -17,6 +19,7 @@ interface RegistrationFormData {
 }
 
 const RegistrationForm: FC<RegistrationFormData> = () => {
+  const [formErrors, setFormErrors] = useState<Record<string, string>>({})
   const [userFormData, setUserFormData] = useState<Partial<FormData>>({})
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
@@ -37,10 +40,15 @@ const RegistrationForm: FC<RegistrationFormData> = () => {
     setUserFormData((prev) => ({ ...prev, [key]: value }))
   }
 
-  const onHandleSubmit = () => {
-    if (formData.password !== formData.confirmPassword) {
-      alert('Пароли не совпадают')
-      return
+  const onHandleSubmit = async () => {
+    try {
+      await registrationSchema.validate(formData)
+      console.log('Успешно', formData)
+    } catch (error) {
+      const errors = {}
+      errors[error.path] = error.message
+      setFormErrors(errors)
+      console.log(errors)
     }
   }
   return (
@@ -53,6 +61,7 @@ const RegistrationForm: FC<RegistrationFormData> = () => {
           variant="outlined"
         />
         <TextField
+          error={!!formErrors.lastName}
           label="Фамилия"
           onChange={(e) => onHandleChange(e.currentTarget.value, 'lastName')}
           value={formData.lastName}
@@ -78,6 +87,8 @@ const RegistrationForm: FC<RegistrationFormData> = () => {
               </InputAdornment>
             )
           }}
+          error={!!formErrors.password}
+          helperText={formErrors.password}
           label="Пароль"
           onChange={(e) => onHandleChange(e.currentTarget.value, 'password')}
           type={showPassword ? 'text' : 'password'}
@@ -98,6 +109,8 @@ const RegistrationForm: FC<RegistrationFormData> = () => {
               </InputAdornment>
             )
           }}
+          error={!!formErrors.confirmPassword}
+          helperText={formErrors.confirmPassword}
           label="Подтвердите пароль"
           onChange={(e) =>
             onHandleChange(e.currentTarget.value, 'confirmPassword')
