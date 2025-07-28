@@ -5,6 +5,8 @@ yupPassword(yup)
 
 export const registrationSchema = yup.object().shape({
   email: yup.string().email('Неверный email').required('Обязательное поле'),
+  name: yup.string().required('Введите имя'),
+  lastName: yup.string().required('Введите фамилию'),
   password: yup
     .string()
     .minUppercase(1, 'Пароль должен содержать минимум одну заглавную букву')
