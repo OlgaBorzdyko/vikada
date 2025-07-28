@@ -89,7 +89,6 @@ const RegistrationForm = () => {
             )
           }}
           error={!!formErrors.password}
-          helperText={formErrors.password}
           label="Пароль"
           onChange={(e) => onHandleChange(e.currentTarget.value, 'password')}
           type={showPassword ? 'text' : 'password'}
@@ -111,7 +110,6 @@ const RegistrationForm = () => {
             )
           }}
           error={!!formErrors.confirmPassword}
-          helperText={formErrors.confirmPassword}
           label="Подтвердите пароль"
           onChange={(e) =>
             onHandleChange(e.currentTarget.value, 'confirmPassword')

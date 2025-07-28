@@ -1,11 +1,13 @@
 import { Box, Typography } from '@mui/material'
 
+import { passwordRules } from './PasswordRules'
+
 const PasswordChecking = ({ errors = [] }: { errors?: string[] }) => {
   console.log(errors)
   return (
     <Box>
-      {errors.map((error, i) => (
-        <Typography key={i}>{error}</Typography>
+      {passwordRules.map((rule, i) => (
+        <Typography key={i}>{rule.label}</Typography>
       ))}
     </Box>
   )
