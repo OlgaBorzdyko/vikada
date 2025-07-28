@@ -57,20 +57,20 @@ const RegistrationForm = () => {
         <TextField
           label="Имя"
           onChange={(e) => onHandleChange(e.currentTarget.value, 'name')}
-          value={formData.name || ''}
+          value={formData.name}
           variant="outlined"
         />
         <TextField
           error={!!formErrors.lastName}
           label="Фамилия"
           onChange={(e) => onHandleChange(e.currentTarget.value, 'lastName')}
-          value={formData.lastName || ''}
+          value={formData.lastName}
           variant="outlined"
         />
         <TextField
           label="Почта"
           onChange={(e) => onHandleChange(e.currentTarget.value, 'email')}
-          value={formData.email || ''}
+          value={formData.email}
           variant="outlined"
         />
         <TextField
@@ -92,7 +92,7 @@ const RegistrationForm = () => {
           label="Пароль"
           onChange={(e) => onHandleChange(e.currentTarget.value, 'password')}
           type={showPassword ? 'text' : 'password'}
-          value={formData.password || ''}
+          value={formData.password}
           variant="outlined"
         />
         <TextField
@@ -116,7 +116,7 @@ const RegistrationForm = () => {
             onHandleChange(e.currentTarget.value, 'confirmPassword')
           }
           type={showConfirmPassword ? 'text' : 'password'}
-          value={formData.confirmPassword || ''}
+          value={formData.confirmPassword}
           variant="outlined"
         />
       </Box>
