@@ -14,6 +14,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@hookform/resolvers": "^5.2.0",
     "@mui/icons-material": "^5.14.3",
     "@mui/lab": "^5.0.0-alpha.140",
     "@mui/material": "^5.14.5",
@@ -39,6 +40,7 @@
     "react-dom": "^18.2.0",
     "react-feather": "^2.0.10",
     "react-helmet": "^6.1.0",
+    "react-hook-form": "^7.61.1",
     "react-i18next": "^14.1.0",
     "react-router-dom": "^6.15.0",
     "react-scripts": "^5.0.1",
@@ -46,7 +48,7 @@
     "styled-components": "^6.0.7",
     "swiper": "^11.2.10",
     "yaml": "^2.7.0",
-    "yup": "^1.2.0"
+    "yup": "^1.6.1"
   },
   "devDependencies": {
     "@nabla/vite-plugin-eslint": "^1.5.0",
