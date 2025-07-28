@@ -20,5 +20,9 @@ export const registrationSchema = yup.object().shape({
       3,
       'Пароль должен содержать максимум 3 одинаковых символа подряд'
     )
-    .required('Обязательное поле')
+    .required('Обязательное поле'),
+  confirmPassword: yup
+    .string()
+    .oneOf([yup.ref('password')], 'Пароли не совпадают')
+    .required('Повторите пароль')
 })
