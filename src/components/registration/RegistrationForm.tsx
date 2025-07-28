@@ -120,7 +120,7 @@ const RegistrationForm = () => {
         />
       </Box>
       <Box>
-        <PasswordChecking errors={formErrors.password} />
+        <PasswordChecking errors={formErrors.password || []} />
       </Box>
       <Box>
         <Button onClick={onHandleSubmit}>Зарегистрировать</Button>
