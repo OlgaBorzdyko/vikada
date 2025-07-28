@@ -1,8 +1,8 @@
 import { Box, Typography, useTheme } from '@mui/material'
 
+import RegistrationForm from '../registration/RegistrationForm'
 import AuthForm from './AuthForm'
 import ImagesList from './ImagesList'
-import RegistrationForm from '../registration/RegistrationForm'
 
 const AuthorizationPage = () => {
   const theme = useTheme()
