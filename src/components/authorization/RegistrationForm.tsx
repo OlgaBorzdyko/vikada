@@ -1,4 +1,11 @@
-import { Box, Button, TextField } from '@mui/material'
+import { Visibility, VisibilityOff } from '@mui/icons-material'
+import {
+  Box,
+  Button,
+  IconButton,
+  InputAdornment,
+  TextField
+} from '@mui/material'
 import { FC, useState } from 'react'
 
 interface RegistrationFormData {
@@ -6,16 +13,20 @@ interface RegistrationFormData {
   lastName: string
   email: string
   password: string
+  confirmPassword: string
 }
 
 const RegistrationForm: FC<RegistrationFormData> = () => {
   const [userFormData, setUserFormData] = useState<Partial<FormData>>({})
+  const [showPassword, setShowPassword] = useState(false)
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
 
   const initialFormState = {
     name: '',
     lastName: '',
     email: '',
-    password: ''
+    password: '',
+    confirmPassword: ''
   }
 
   const formData = {
@@ -23,11 +34,14 @@ const RegistrationForm: FC<RegistrationFormData> = () => {
     ...userFormData
   }
   const onHandleChange = (value: string, key: string) => {
-    setUserFormData({ ...formData, [key]: value })
+    setUserFormData((prev) => ({ ...prev, [key]: value }))
   }
 
   const onHandleSubmit = () => {
-    console.log(userFormData)
+    if (formData.password !== formData.confirmPassword) {
+      alert('Пароли не совпадают')
+      return
+    }
   }
   return (
     <Box>
@@ -51,10 +65,45 @@ const RegistrationForm: FC<RegistrationFormData> = () => {
           variant="outlined"
         />
         <TextField
-          key="password"
-          label="● ● ● ● ● ● ● ●"
+          InputProps={{
+            autoComplete: 'new-password',
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton
+                  edge="end"
+                  onClick={() => setShowPassword((prev) => !prev)}
+                >
+                  {showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            )
+          }}
+          label="Пароль"
           onChange={(e) => onHandleChange(e.currentTarget.value, 'password')}
+          type={showPassword ? 'text' : 'password'}
           value={formData.password}
+          variant="outlined"
+        />
+        <TextField
+          InputProps={{
+            autoComplete: 'new-password',
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton
+                  edge="end"
+                  onClick={() => setShowConfirmPassword((prev) => !prev)}
+                >
+                  {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            )
+          }}
+          label="Подтвердите пароль"
+          onChange={(e) =>
+            onHandleChange(e.currentTarget.value, 'confirmPassword')
+          }
+          type={showConfirmPassword ? 'text' : 'password'}
+          value={formData.confirmPassword}
           variant="outlined"
         />
       </Box>

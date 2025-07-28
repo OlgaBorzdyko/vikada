@@ -15,6 +15,10 @@ const GlobalStyles = createGlobalStyle`
         font-size: 14px;
         font-weight: 400;
     }
+    
+    input::-ms-reveal, input::-ms-clear {
+        display: none;
+    }
 `
 
 export default GlobalStyles
