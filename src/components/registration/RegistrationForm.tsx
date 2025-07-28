@@ -8,6 +8,7 @@ import {
 } from '@mui/material'
 import { useState } from 'react'
 
+import PasswordChecking from './PasswordChecking'
 import { registrationSchema } from './RegistrationSchema'
 
 interface RegistrationFormData {
@@ -19,7 +20,7 @@ interface RegistrationFormData {
 }
 
 const RegistrationForm = () => {
-  const [formErrors, setFormErrors] = useState<Record<string, string>>({})
+  const [formErrors, setFormErrors] = useState<Record<string, string[]>>({})
   const [userFormData, setUserFormData] = useState<
     Partial<RegistrationFormData>
   >({})
@@ -42,9 +43,9 @@ const RegistrationForm = () => {
     setUserFormData((prev) => ({ ...prev, [key]: value }))
     try {
       await registrationSchema.validateAt(key, { [key]: value })
-      setFormErrors((prev) => ({ ...prev, [key]: '' }))
+      setFormErrors((prev) => ({ ...prev, [key]: [] }))
     } catch (error) {
-      setFormErrors((prev) => ({ ...prev, [key]: error.message }))
+      setFormErrors((prev) => ({ ...prev, [key]: [error.message] }))
     }
   }
 
@@ -119,6 +120,9 @@ const RegistrationForm = () => {
           value={formData.confirmPassword}
           variant="outlined"
         />
+      </Box>
+      <Box>
+        <PasswordChecking errors={formErrors.password} />
       </Box>
       <Box>
         <Button onClick={onHandleSubmit}>Зарегистрировать</Button>
