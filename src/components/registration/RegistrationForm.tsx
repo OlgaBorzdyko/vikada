@@ -6,7 +6,7 @@ import {
   InputAdornment,
   TextField
 } from '@mui/material'
-import { FC, useState } from 'react'
+import { useState } from 'react'
 
 import { registrationSchema } from './RegistrationSchema'
 
@@ -18,9 +18,11 @@ interface RegistrationFormData {
   confirmPassword: string
 }
 
-const RegistrationForm: FC<RegistrationFormData> = () => {
+const RegistrationForm = () => {
   const [formErrors, setFormErrors] = useState<Record<string, string>>({})
-  const [userFormData, setUserFormData] = useState<Partial<FormData>>({})
+  const [userFormData, setUserFormData] = useState<
+    Partial<RegistrationFormData>
+  >({})
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
 
@@ -36,20 +38,18 @@ const RegistrationForm: FC<RegistrationFormData> = () => {
     ...initialFormState,
     ...userFormData
   }
-  const onHandleChange = (value: string, key: string) => {
+  const onHandleChange = async (value: string, key: string) => {
     setUserFormData((prev) => ({ ...prev, [key]: value }))
+    try {
+      await registrationSchema.validateAt(key, { [key]: value })
+      setFormErrors((prev) => ({ ...prev, [key]: '' }))
+    } catch (error) {
+      setFormErrors((prev) => ({ ...prev, [key]: error.message }))
+    }
   }
 
   const onHandleSubmit = async () => {
-    try {
-      await registrationSchema.validate(formData)
-      console.log('Успешно', formData)
-    } catch (error) {
-      const errors = {}
-      errors[error.path] = error.message
-      setFormErrors(errors)
-      console.log(errors)
-    }
+    console.log(formData)
   }
   return (
     <Box>
@@ -57,20 +57,20 @@ const RegistrationForm: FC<RegistrationFormData> = () => {
         <TextField
           label="Имя"
           onChange={(e) => onHandleChange(e.currentTarget.value, 'name')}
-          value={formData.name}
+          value={formData.name || ''}
           variant="outlined"
         />
         <TextField
           error={!!formErrors.lastName}
           label="Фамилия"
           onChange={(e) => onHandleChange(e.currentTarget.value, 'lastName')}
-          value={formData.lastName}
+          value={formData.lastName || ''}
           variant="outlined"
         />
         <TextField
           label="Почта"
           onChange={(e) => onHandleChange(e.currentTarget.value, 'email')}
-          value={formData.email}
+          value={formData.email || ''}
           variant="outlined"
         />
         <TextField
@@ -92,7 +92,7 @@ const RegistrationForm: FC<RegistrationFormData> = () => {
           label="Пароль"
           onChange={(e) => onHandleChange(e.currentTarget.value, 'password')}
           type={showPassword ? 'text' : 'password'}
-          value={formData.password}
+          value={formData.password || ''}
           variant="outlined"
         />
         <TextField
@@ -116,7 +116,7 @@ const RegistrationForm: FC<RegistrationFormData> = () => {
             onHandleChange(e.currentTarget.value, 'confirmPassword')
           }
           type={showConfirmPassword ? 'text' : 'password'}
-          value={formData.confirmPassword}
+          value={formData.confirmPassword || ''}
           variant="outlined"
         />
       </Box>
