@@ -19,6 +19,11 @@ const GlobalStyles = createGlobalStyle`
     input::-ms-reveal, input::-ms-clear {
         display: none;
     }
+
+    .MuiFormControl-root {
+        display: flex;
+        flex-direction: row;
+    }
 `
 
 export default GlobalStyles
