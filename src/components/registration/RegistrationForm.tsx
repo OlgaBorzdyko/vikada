@@ -46,17 +46,20 @@ const RegistrationForm = () => {
           error={!!errors.name}
           label="Имя"
           {...register('name')}
+          helperText={errors.name?.message}
           variant="outlined"
         />
         <TextField
           error={!!errors.lastName}
           {...register('lastName')}
+          helperText={errors.lastName?.message}
           label="Фамилия"
           variant="outlined"
         />
         <TextField
           error={!!errors.email}
           {...register('email')}
+          helperText={errors.email?.message}
           label="Почта"
           variant="outlined"
         />
@@ -95,6 +98,7 @@ const RegistrationForm = () => {
             )
           }}
           error={!!errors.confirmPassword}
+          helperText={errors.confirmPassword?.message}
           label="Подтвердите пароль"
           {...register('confirmPassword')}
           type={showConfirmPassword ? 'text' : 'password'}

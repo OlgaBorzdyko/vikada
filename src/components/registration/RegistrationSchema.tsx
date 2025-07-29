@@ -7,11 +7,11 @@ yupPassword(yup)
 
 export const passwordSchema = passwordRules.reduce(
   (schema, rule) => rule.yup(schema),
-  yup.string().required('Обязательное поле')
+  yup.string().required('Введите пароль')
 )
 
 export const registrationSchema = yup.object().shape({
-  email: yup.string().email('Неверный email').required('Обязательное поле'),
+  email: yup.string().email('Некорректный email').required('Введите почту'),
   name: yup.string().required('Введите имя'),
   lastName: yup.string().required('Введите фамилию'),
   password: passwordSchema,
