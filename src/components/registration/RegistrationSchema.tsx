@@ -5,7 +5,7 @@ import { passwordRules } from './PasswordRules'
 
 yupPassword(yup)
 
-const passwordSchema = passwordRules.reduce(
+export const passwordSchema = passwordRules.reduce(
   (schema, rule) => rule.yup(schema),
   yup.string().required('Обязательное поле')
 )
