@@ -1,7 +1,7 @@
 import { Box, Typography, useTheme } from '@mui/material'
 
 import RegistrationForm from '../registration/RegistrationForm'
-import AuthForm from './AuthForm'
+// import AuthForm from './AuthForm'
 import ImagesList from './ImagesList'
 
 const AuthorizationPage = () => {
@@ -61,7 +61,7 @@ const AuthorizationPage = () => {
           height: 'auto'
         }}
       >
-        <AuthForm />
+        {/*<AuthForm />*/}
         <RegistrationForm />
       </Box>
     </Box>

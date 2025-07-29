@@ -78,6 +78,7 @@ const RegistrationForm = () => {
             )
           }}
           error={!!errors.password}
+          helperText={errors.password?.message}
           {...register('password')}
           label="Пароль"
           type={showPassword ? 'text' : 'password'}
