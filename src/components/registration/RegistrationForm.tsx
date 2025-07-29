@@ -1,3 +1,4 @@
+import { yupResolver } from '@hookform/resolvers/yup'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 import {
   Box,
@@ -7,6 +8,7 @@ import {
   TextField
 } from '@mui/material'
 import { useState } from 'react'
+import { useForm } from 'react-hook-form'
 
 import PasswordChecking from './PasswordChecking'
 import { registrationSchema } from './RegistrationSchema'
@@ -20,58 +22,42 @@ interface RegistrationFormData {
 }
 
 const RegistrationForm = () => {
-  const [formErrors, setFormErrors] = useState<Record<string, string[]>>({})
-  const [userFormData, setUserFormData] = useState<
-    Partial<RegistrationFormData>
-  >({})
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
 
-  const initialFormState = {
-    name: '',
-    lastName: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
-  }
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors }
+  } = useForm<RegistrationFormData>({
+    resolver: yupResolver(registrationSchema),
+    mode: 'onChange'
+  })
+  const passwordValue = watch('password')
 
-  const formData = {
-    ...initialFormState,
-    ...userFormData
-  }
-  const onHandleChange = async (value: string, key: string) => {
-    setUserFormData((prev) => ({ ...prev, [key]: value }))
-    try {
-      await registrationSchema.validateAt(key, { [key]: value })
-      setFormErrors((prev) => ({ ...prev, [key]: [] }))
-    } catch (error) {
-      setFormErrors((prev) => ({ ...prev, [key]: [error.message] }))
-    }
-  }
-
-  const onHandleSubmit = async () => {
-    console.log(formData)
+  const onHandleSubmit = (data: RegistrationFormData) => {
+    console.log('Успешно:', data)
   }
   return (
     <Box>
-      <Box>
+      <Box component="form" onSubmit={handleSubmit(onHandleSubmit)}>
         <TextField
+          error={!!errors.name}
           label="Имя"
-          onChange={(e) => onHandleChange(e.currentTarget.value, 'name')}
-          value={formData.name}
+          {...register('name')}
           variant="outlined"
         />
         <TextField
-          error={!!formErrors.lastName}
+          error={!!errors.lastName}
+          {...register('lastName')}
           label="Фамилия"
-          onChange={(e) => onHandleChange(e.currentTarget.value, 'lastName')}
-          value={formData.lastName}
           variant="outlined"
         />
         <TextField
+          error={!!errors.email}
+          {...register('email')}
           label="Почта"
-          onChange={(e) => onHandleChange(e.currentTarget.value, 'email')}
-          value={formData.email}
           variant="outlined"
         />
         <TextField
@@ -88,11 +74,10 @@ const RegistrationForm = () => {
               </InputAdornment>
             )
           }}
-          error={!!formErrors.password}
+          error={!!errors.password}
+          {...register('password')}
           label="Пароль"
-          onChange={(e) => onHandleChange(e.currentTarget.value, 'password')}
           type={showPassword ? 'text' : 'password'}
-          value={formData.password}
           variant="outlined"
         />
         <TextField
@@ -109,21 +94,21 @@ const RegistrationForm = () => {
               </InputAdornment>
             )
           }}
-          error={!!formErrors.confirmPassword}
+          error={!!errors.confirmPassword}
           label="Подтвердите пароль"
-          onChange={(e) =>
-            onHandleChange(e.currentTarget.value, 'confirmPassword')
-          }
+          {...register('confirmPassword')}
           type={showConfirmPassword ? 'text' : 'password'}
-          value={formData.confirmPassword}
           variant="outlined"
         />
+        <Box>
+          <Button type="submit">Зарегистрировать</Button>
+        </Box>
       </Box>
       <Box>
-        <PasswordChecking errors={formErrors.password || []} />
-      </Box>
-      <Box>
-        <Button onClick={onHandleSubmit}>Зарегистрировать</Button>
+        <PasswordChecking
+          errors={errors.password?.message ? [errors.password.message] : []}
+          value={passwordValue}
+        />
       </Box>
     </Box>
   )
