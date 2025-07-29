@@ -11,6 +11,7 @@ const PasswordChecking = ({ errors }: { errors: string[] }) => {
           <Alert
             key={i}
             severity={failed ? 'success' : 'error'}
+            sx={{ border: 'none', padding: 0 }}
             variant="outlined"
           >
             {rule.label}
