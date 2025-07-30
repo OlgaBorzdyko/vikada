@@ -46,7 +46,7 @@ const RegistrationForm = () => {
   }
   return (
     <Box sx={{ display: 'flex', flexDirection: 'row' }}>
-      <Box>
+      <Box sx={{ minWidth: 350}}>
         {isOpen && (
           <PasswordChecking
             errors={errors.password?.message ? [errors.password.message] : []}
@@ -54,7 +54,7 @@ const RegistrationForm = () => {
           />
         )}
       </Box>
-      <Box component="form" onSubmit={handleSubmit(onHandleSubmit)} flex={1}>
+      <Box component="form" flex={1} onSubmit={handleSubmit(onHandleSubmit)}>
         <TextField
           error={!!errors.name}
           label="Имя"

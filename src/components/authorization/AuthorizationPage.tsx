@@ -57,7 +57,6 @@ const AuthorizationPage = () => {
           display: 'flex',
           flexDirection: 'column',
           width: '50%',
-          marginLeft: '50%',
           height: 'auto'
         }}
       >
