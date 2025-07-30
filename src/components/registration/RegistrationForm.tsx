@@ -45,8 +45,16 @@ const RegistrationForm = () => {
     setIsOpen((prev) => !prev)
   }
   return (
-    <Box>
-      <Box component="form" onSubmit={handleSubmit(onHandleSubmit)}>
+    <Box sx={{ display: 'flex', flexDirection: 'row' }}>
+      <Box>
+        {isOpen && (
+          <PasswordChecking
+            errors={errors.password?.message ? [errors.password.message] : []}
+            value={passwordValue}
+          />
+        )}
+      </Box>
+      <Box component="form" onSubmit={handleSubmit(onHandleSubmit)} flex={1}>
         <TextField
           error={!!errors.name}
           label="Имя"
@@ -114,14 +122,6 @@ const RegistrationForm = () => {
         <Box>
           <Button type="submit">Зарегистрировать</Button>
         </Box>
-      </Box>
-      <Box>
-        {isOpen && (
-          <PasswordChecking
-            errors={errors.password?.message ? [errors.password.message] : []}
-            value={passwordValue}
-          />
-        )}
       </Box>
     </Box>
   )
