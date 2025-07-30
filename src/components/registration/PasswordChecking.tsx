@@ -17,21 +17,23 @@ const PasswordChecking = ({ value }: { value?: string }) => {
       })
   }, [value])
   return (
-    <Box>
-      {passwordRules.map((rule, i) => {
-        const failed = isEmpty || errors?.includes(rule.errorText)
-        return (
-          <Alert
-            key={i}
-            severity={failed ? 'error' : 'success'}
-            sx={{ border: 'none', padding: 0 }}
-            variant="outlined"
-          >
-            {rule.label}
-          </Alert>
-        )
-      })}
-    </Box>
+    <>
+      <Box>
+        {passwordRules.map((rule, i) => {
+          const failed = isEmpty || errors?.includes(rule.errorText)
+          return (
+            <Alert
+              key={i}
+              severity={failed ? 'error' : 'success'}
+              sx={{ border: 'none', padding: 0 }}
+              variant="outlined"
+            >
+              {rule.label}
+            </Alert>
+          )
+        })}
+      </Box>
+    </>
   )
 }
 

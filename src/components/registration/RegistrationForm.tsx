@@ -24,6 +24,7 @@ interface RegistrationFormData {
 const RegistrationForm = () => {
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
 
   const {
     register,
@@ -38,6 +39,10 @@ const RegistrationForm = () => {
 
   const onHandleSubmit = (data: RegistrationFormData) => {
     console.log('Успешно:', data)
+  }
+
+  const onInputChange = () => {
+    setIsOpen((prev) => !prev)
   }
   return (
     <Box>
@@ -79,6 +84,7 @@ const RegistrationForm = () => {
           }}
           error={!!errors.password}
           helperText={errors.password?.message}
+          onClick={onInputChange}
           {...register('password')}
           label="Пароль"
           type={showPassword ? 'text' : 'password'}
@@ -110,10 +116,12 @@ const RegistrationForm = () => {
         </Box>
       </Box>
       <Box>
-        <PasswordChecking
-          errors={errors.password?.message ? [errors.password.message] : []}
-          value={passwordValue}
-        />
+        {isOpen && (
+          <PasswordChecking
+            errors={errors.password?.message ? [errors.password.message] : []}
+            value={passwordValue}
+          />
+        )}
       </Box>
     </Box>
   )
