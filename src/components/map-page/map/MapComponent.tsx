@@ -10,6 +10,7 @@ import View from 'ol/View'
 import { useEffect, useRef, useState } from 'react'
 
 import { useMapObjects } from '../../../api/postMapObjects'
+import { useObjectContent } from '../../../api/postObjectContent'
 import { getFeaturesFromPoints } from './getFeaturesFromPoints'
 import { getMapLonLat, MapLonLat } from './getMapLonLat'
 
@@ -20,6 +21,7 @@ const MapComponent = () => {
   const [coords, setCoords] = useState<MapLonLat | null>(null)
 
   const objects = useMapObjects()
+  const objectContentMutation = useObjectContent()
 
   useEffect(() => {
     if (!mapRef.current || mapInstanceRef.current) return
@@ -55,7 +57,19 @@ const MapComponent = () => {
       const bounds = getMapLonLat(map)
       if (bounds) setCoords(bounds)
     })
-  }, [])
+    const handleClick = (evt) => {
+      map.forEachFeatureAtPixel(evt.pixel, (feature) => {
+        const id = feature.get('id')
+        if (id) {
+          objectContentMutation.mutate({ object_id: String(id) })
+          console.log(objectContentMutation)
+        }
+        return true
+      })
+    }
+
+    map.on('click', handleClick)
+  }, [objectContentMutation])
   useEffect(() => {
     if (!coords) return
     objects.mutate(coords)
@@ -68,7 +82,8 @@ const MapComponent = () => {
 
     const pointsFromApi = objects.data.points.map((p) => ({
       longitude: p.map_position.coordinates[0],
-      latitude: p.map_position.coordinates[1]
+      latitude: p.map_position.coordinates[1],
+      id: p.id
     }))
 
     const features = getFeaturesFromPoints(pointsFromApi)
