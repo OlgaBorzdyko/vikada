@@ -46,7 +46,7 @@ const RegistrationForm = () => {
   }
   return (
     <Box sx={{ display: 'flex', flexDirection: 'row' }}>
-      <Box sx={{ minWidth: 350}}>
+      <Box sx={{ minWidth: 350 }}>
         {isOpen && (
           <PasswordChecking
             errors={errors.password?.message ? [errors.password.message] : []}

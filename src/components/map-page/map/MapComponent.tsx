@@ -7,6 +7,8 @@ import OSM from 'ol/source/OSM'
 import View from 'ol/View'
 import { useEffect, useRef } from 'react'
 
+import MapObjects from './MapObjects'
+
 const MapComponent = () => {
   const mapRef = useRef<HTMLDivElement>(null)
   const mapInstanceRef = useRef<Map | null>(null)
@@ -39,15 +41,18 @@ const MapComponent = () => {
     })
   }, [])
   return (
-    <div
-      ref={mapRef}
-      style={{
-        width: '100%',
-        height: 'calc(100vh - 221.33px)',
-        borderRadius: 12,
-        overflow: 'hidden'
-      }}
-    />
+    <>
+      <div
+        ref={mapRef}
+        style={{
+          width: '100%',
+          height: 'calc(100vh - 221.33px)',
+          borderRadius: 12,
+          overflow: 'hidden'
+        }}
+      />
+      <MapObjects />
+    </>
   )
 }
 

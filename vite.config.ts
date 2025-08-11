@@ -8,7 +8,14 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 export default defineConfig({
   plugins: [react(), eslintPlugin(), viteSvgr(), tsconfigPaths()],
   server: {
-    port: 3000
+    port: 3000,
+    proxy: {
+      '/objects': {
+        target: 'http://objects.vkdapi.ru',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/objects/, '')
+      }
+    }
   },
   resolve: {
     alias: {
