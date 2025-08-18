@@ -24,6 +24,12 @@ const MapComponent = () => {
   const objectContentMutation = useObjectContent()
 
   useEffect(() => {
+    if (objectContentMutation.isSuccess && objectContentMutation.data) {
+      console.log('Данные по кликнутой точке:', objectContentMutation.data)
+    }
+  }, [objectContentMutation.isSuccess, objectContentMutation.data])
+
+  useEffect(() => {
     if (!mapRef.current || mapInstanceRef.current) return
 
     const map = new Map({
@@ -40,9 +46,7 @@ const MapComponent = () => {
     })
 
     const vectorSource = new VectorSource()
-    const vectorLayer = new VectorLayer({
-      source: vectorSource
-    })
+    const vectorLayer = new VectorLayer({ source: vectorSource })
     map.addLayer(vectorLayer)
 
     mapInstanceRef.current = map
@@ -57,19 +61,18 @@ const MapComponent = () => {
       const bounds = getMapLonLat(map)
       if (bounds) setCoords(bounds)
     })
-    const handleClick = (evt) => {
+
+    map.on('click', (evt) => {
       map.forEachFeatureAtPixel(evt.pixel, (feature) => {
         const id = feature.get('id')
         if (id) {
           objectContentMutation.mutate({ object_id: String(id) })
-          console.log(objectContentMutation)
         }
         return true
       })
-    }
-
-    map.on('click', handleClick)
+    })
   }, [objectContentMutation])
+
   useEffect(() => {
     if (!coords) return
     objects.mutate(coords)
@@ -87,24 +90,21 @@ const MapComponent = () => {
     }))
 
     const features = getFeaturesFromPoints(pointsFromApi)
-
     const source = vectorLayerRef.current.getSource()
     source.clear()
     source.addFeatures(features)
   }, [objects.isSuccess, objects.data])
 
   return (
-    <>
-      <div
-        ref={mapRef}
-        style={{
-          width: '100%',
-          height: 'calc(100vh - 221.33px)',
-          borderRadius: 12,
-          overflow: 'hidden'
-        }}
-      />
-    </>
+    <div
+      ref={mapRef}
+      style={{
+        width: '100%',
+        height: 'calc(100vh - 221.33px)',
+        borderRadius: 12,
+        overflow: 'hidden'
+      }}
+    />
   )
 }
 

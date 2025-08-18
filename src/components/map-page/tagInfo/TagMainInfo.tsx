@@ -1,5 +1,6 @@
 import { Box, Typography } from '@mui/material'
 
+import { useMapStore } from '../../../store/MapStore'
 import ImagesSwiper from './ImagesSwiper'
 import { TagInfoArray } from './TagInfoArray'
 
@@ -14,6 +15,8 @@ type ItemData = {
 }
 
 const TagMainInfo = () => {
+  const selectedObject = useMapStore((state) => state.selectedObject)
+  console.log(selectedObject)
   return (
     <div>
       {TagInfoArray.map((item: ItemData, index: number) => {
