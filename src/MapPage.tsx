@@ -1,8 +1,9 @@
-import { Breadcrumbs, Container, Link, Typography } from '@mui/material'
+import { Box, Breadcrumbs, Container, Link, Typography } from '@mui/material'
 import { useState } from 'react'
 
 import Header from './components/Header'
 import MapComponent from './components/map-page/map/MapComponent'
+import SearchField from './components/map-page/search/SearchField'
 import TagInfoComponent from './components/map-page/tagInfo/TagInfoComponent'
 
 const MapPage = () => {
@@ -22,6 +23,16 @@ const MapPage = () => {
           <Typography color="text.secondary">Карты</Typography>
         </Breadcrumbs>
         <div style={{ position: 'relative' }}>
+          <Box
+            style={{
+              position: 'absolute',
+              top: 16,
+              left: 16,
+              zIndex: 1000
+            }}
+          >
+            <SearchField />
+          </Box>
           <MapComponent setIsOpen={setIsOpen} />
           <TagInfoComponent isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
