@@ -7,14 +7,18 @@ import { fromLonLat } from 'ol/proj'
 import OSM from 'ol/source/OSM'
 import VectorSource from 'ol/source/Vector'
 import View from 'ol/View'
-import { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import { useMapObjects } from '../../../api/postMapObjects'
 import { useObjectContent } from '../../../api/postObjectContent'
 import { getFeaturesFromPoints } from './getFeaturesFromPoints'
 import { getMapLonLat, MapLonLat } from './getMapLonLat'
 
-const MapComponent = () => {
+const MapComponent = ({
+  setIsOpen
+}: {
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
+}) => {
   const mapRef = useRef<HTMLDivElement>(null)
   const mapInstanceRef = useRef<Map | null>(null)
   const vectorLayerRef = useRef<VectorLayer | null>(null)
@@ -67,10 +71,12 @@ const MapComponent = () => {
         const id = feature.get('id')
         if (id) {
           objectContentMutation.mutate({ object_id: String(id) })
+          setIsOpen(true)
         }
         return true
       })
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [objectContentMutation])
 
   useEffect(() => {

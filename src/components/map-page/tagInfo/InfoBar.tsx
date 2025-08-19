@@ -1,22 +1,12 @@
 import Box from '@mui/material/Box'
-import React from 'react'
 import styled from 'styled-components'
 
 import TagMainInfo from './TagMainInfo'
 import ToursList from './ToursList'
 
-const InfoBar = ({
-  isOpen,
-  setIsOpen
-}: {
-  isOpen: boolean
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
-}) => {
+const InfoBar = ({ isOpen }: { isOpen: boolean }) => {
   return (
     <>
-      <StyledButton onClick={() => setIsOpen(!isOpen)}>
-        Поле поиска тега
-      </StyledButton>
       <BarWrapper isOpen={isOpen}>
         <Box sx={{ padding: '20px' }}>
           <p>Выбранное место</p>
@@ -42,10 +32,4 @@ const BarWrapper = styled.div`
   overflow-y: scroll;
   overflow-x: hidden;
 `
-
-const StyledButton = styled.button`
-  position: absolute;
-  left: 10%;
-`
-
 export default InfoBar

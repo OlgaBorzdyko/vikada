@@ -8,6 +8,7 @@ export type ItemData = {
   phoneNumber: string
   webSite: string
   workingSchedule: null
+  excursions: string[] | null
 }
 
 interface MapStore {
