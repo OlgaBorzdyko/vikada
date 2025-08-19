@@ -22,7 +22,7 @@ const MapPage = () => {
           <Typography color="text.secondary">Карты</Typography>
         </Breadcrumbs>
         <div style={{ position: 'relative' }}>
-          <MapComponent />
+          <MapComponent setIsOpen={setIsOpen} />
           <TagInfoComponent isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
       </Container>

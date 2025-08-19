@@ -71,13 +71,12 @@ const MapComponent = ({
         const id = feature.get('id')
         if (id) {
           objectContentMutation.mutate({ object_id: String(id) })
-          setIsOpen(true)
+          setIsOpen((prev) => !prev)
         }
         return true
       })
     })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [objectContentMutation])
+  }, [objectContentMutation, setIsOpen])
 
   useEffect(() => {
     if (!coords) return
