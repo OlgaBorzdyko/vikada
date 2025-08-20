@@ -11,6 +11,7 @@ import React, { useEffect, useRef, useState } from 'react'
 
 import { useMapObjects } from '../../../api/postMapObjects'
 import { useObjectContent } from '../../../api/postObjectContent'
+import { useMapStore } from '../../../store/MapStore'
 import { getFeaturesFromPoints } from './getFeaturesFromPoints'
 import { getMapLonLat, MapLonLat } from './getMapLonLat'
 
@@ -26,12 +27,7 @@ const MapComponent = ({
 
   const objects = useMapObjects()
   const objectContentMutation = useObjectContent()
-
-  useEffect(() => {
-    if (objectContentMutation.isSuccess && objectContentMutation.data) {
-      console.log('Данные по кликнутой точке:', objectContentMutation.data)
-    }
-  }, [objectContentMutation.isSuccess, objectContentMutation.data])
+  const setVisiblePoints = useMapStore((state) => state.setPoints)
 
   useEffect(() => {
     if (!mapRef.current || mapInstanceRef.current) return
@@ -89,15 +85,17 @@ const MapComponent = ({
     if (!vectorLayerRef.current) return
 
     const pointsFromApi = objects.data.points.map((p) => ({
+      id: p.id,
       longitude: p.map_position.coordinates[0],
-      latitude: p.map_position.coordinates[1],
-      id: p.id
+      latitude: p.map_position.coordinates[1]
     }))
+    setVisiblePoints(pointsFromApi)
 
     const features = getFeaturesFromPoints(pointsFromApi)
     const source = vectorLayerRef.current.getSource()
     source.clear()
     source.addFeatures(features)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [objects.isSuccess, objects.data])
 
   return (

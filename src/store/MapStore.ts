@@ -9,14 +9,25 @@ export type ItemData = {
   webSite: string
   workingSchedule: null
   excursions: string[] | null
+  tags: string[]
+}
+
+type MapPoint = {
+  id: string
+  title: string
+  tags: string[]
 }
 
 interface MapStore {
   selectedObject: ItemData | null
   setSelectedObject: (object: ItemData) => void
+  points: MapPoint[]
+  setPoints: (points: MapPoint[]) => void
 }
 
 export const useMapStore = create<MapStore>((set) => ({
   selectedObject: null,
-  setSelectedObject: (object) => set({ selectedObject: object })
+  points: [],
+  setSelectedObject: (object) => set({ selectedObject: object }),
+  setPoints: (points) => set({ points })
 }))

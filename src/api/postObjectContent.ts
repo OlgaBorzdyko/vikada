@@ -21,7 +21,8 @@ export const useObjectContent = () => {
         address: data.object.full_address,
         phoneNumber: (data.phones ?? []).join(', '),
         webSite: (data.links ?? []).join(', '),
-        workingSchedule: data.working_schedule
+        workingSchedule: data.working_schedule,
+        tags: data.object.tags ?? []
       })
     }
   })
