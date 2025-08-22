@@ -40,7 +40,7 @@ const MapComponent = ({
         })
       ],
       view: new View({
-        center: fromLonLat([37.620393, 55.75396]),
+        center: fromLonLat([32.053102, 54.781888]),
         zoom: 16
       })
     })

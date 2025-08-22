@@ -50,7 +50,8 @@
     "swiper": "^11.2.10",
     "yaml": "^2.7.0",
     "yup": "^1.6.1",
-    "yup-password": "^0.4.0"
+    "yup-password": "^0.4.0",
+    "zustand": "^5.0.8"
   },
   "devDependencies": {
     "@nabla/vite-plugin-eslint": "^1.5.0",

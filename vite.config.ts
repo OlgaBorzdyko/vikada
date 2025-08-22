@@ -15,12 +15,17 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/objects/, '')
       }
-    }
-  },
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
-      '@mui/styled-engine': '@mui/styled-engine-sc'
+      //   '/users': {
+      //     target: 'http://users.vkdapi.ru',
+      //     changeOrigin: true,
+      //     rewrite: (path) => path.replace(/^\/users/, '')
+      // }
+    },
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, './src'),
+        '@mui/styled-engine': '@mui/styled-engine-sc'
+      }
     }
   }
 })

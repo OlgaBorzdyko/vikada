@@ -1,6 +1,6 @@
 import { Toolbar, Typography } from '@mui/material'
 
-import LocationIcon from '@/assets/icons/LocationIcon.svg?react'
+// import LocationIcon from '@/assets/icons/LocationIcon.svg?react'
 
 const HeaderLocationBar = () => {
   return (
@@ -11,9 +11,9 @@ const HeaderLocationBar = () => {
           borderBottom: '1px solid #E1E1E1'
         }}
       >
-        <LocationIcon
-          style={{ width: '12.67px', height: '12.67px', paddingRight: '2px' }}
-        />
+        {/*<LocationIcon*/}
+        {/*  style={{ width: '12.67px', height: '12.67px', paddingRight: '2px' }}*/}
+        {/*/>*/}
         <Typography
           sx={{
             color: 'primary',

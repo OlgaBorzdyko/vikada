@@ -17,15 +17,12 @@ export const useGetTags = () => {
             objectContentMutation.mutateAsync({ object_id: String(point.id) })
           )
         )
-        const tags = results.map((res) => res?.object?.tags || []).flat()
-
-        setAllTags(tags)
-        console.log('Все теги:', tags)
 
         setPointsData(results)
-        console.log('Данные двух точек:', results)
+        const tags = results.flatMap((point) => point.tags || [])
+        setAllTags(tags)
       } catch (err) {
-        console.error('Ошибка при получении данных точек:', err)
+        console.error('Ошибка при получении данных:', err)
       }
     }
 

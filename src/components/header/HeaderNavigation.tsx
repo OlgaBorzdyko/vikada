@@ -1,7 +1,6 @@
 import { Box, Link, Toolbar, Typography } from '@mui/material'
 
-import LogoIcon from '@/assets/logo/Logo.svg?react'
-
+// import LogoIcon from '@/assets/logo/Logo.svg?react'
 import ProfileButton from '../profile/ProfileButton'
 
 const HeaderNavigation = () => {
@@ -27,16 +26,16 @@ const HeaderNavigation = () => {
               padding: '8px'
             }}
           >
-            <LogoIcon
-              style={{
-                width: '12px',
-                height: '16px',
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)'
-              }}
-            />
+            {/*<LogoIcon*/}
+            {/*  style={{*/}
+            {/*    width: '12px',*/}
+            {/*    height: '16px',*/}
+            {/*    position: 'absolute',*/}
+            {/*    top: '50%',*/}
+            {/*    left: '50%',*/}
+            {/*    transform: 'translate(-50%, -50%)'*/}
+            {/*  }}*/}
+            {/*/>*/}
           </Box>
           <Typography
             sx={{

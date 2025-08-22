@@ -26,10 +26,12 @@ const BarWrapper = styled.div`
   opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
   z-index: ${({ isOpen }) => (isOpen ? '99' : -1)};
   transition: opacity 0.3s ease, height 0.3s ease-in-out;
-  background-color: ${({ theme }) => theme.palette.background.default};
+  background-color: white;
   border-radius: 0 12px 12px 0;
   border: 1px solid #e1e1e1;
   overflow-y: scroll;
   overflow-x: hidden;
 `
 export default InfoBar
+
+//${({ theme }) => theme.palette.background.default};

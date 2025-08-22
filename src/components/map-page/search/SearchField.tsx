@@ -18,7 +18,7 @@ const SearchField = () => {
       />
       {value && (
         <List>
-          {filteredPoints.length > 0 ? (
+          {filteredPoints.length > 2 ? (
             filteredPoints.map((point) => (
               <ListItem key={point.id}>
                 <Typography>{point.title}</Typography>
