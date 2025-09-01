@@ -1,7 +1,6 @@
 import { Box, Breadcrumbs, Container, Link, Typography } from '@mui/material'
 import { useState } from 'react'
 
-import TestComponent from './api/test'
 import Header from './components/Header'
 import MapComponent from './components/map-page/map/MapComponent'
 import SearchComponent from './components/map-page/search/SearchComponent'
@@ -36,7 +35,6 @@ const MapPage = () => {
           </Box>
           <MapComponent setIsOpen={setIsOpen} />
           <TagInfoComponent isOpen={isOpen} setIsOpen={setIsOpen} />
-          <TestComponent />
         </div>
       </Container>
     </div>
