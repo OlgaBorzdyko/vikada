@@ -1,4 +1,4 @@
-import { Box, List, ListItem, TextField, Typography } from '@mui/material'
+import { Box, TextField } from '@mui/material'
 import { useState } from 'react'
 
 import { useGetTags } from './useGetTags'
@@ -9,6 +9,7 @@ const SearchField = () => {
   const filteredPoints = useTagSearch(value)
   const test = useGetTags()
   console.log('test', test)
+  console.log('filteredPoints', filteredPoints)
   return (
     <Box>
       <TextField
@@ -16,23 +17,23 @@ const SearchField = () => {
         style={{ backgroundColor: 'white' }}
         value={value}
       />
-      {value && (
-        <List>
-          {filteredPoints.length > 2 ? (
-            filteredPoints.map((point) => (
-              <ListItem key={point.id}>
-                <Typography>{point.title}</Typography>
-              </ListItem>
-            ))
-          ) : (
-            <ListItem>
-              <Typography color="text.secondary">
-                Совпадений не найдено
-              </Typography>
-            </ListItem>
-          )}
-        </List>
-      )}
+      {/*{value && (*/}
+      {/*  <List>*/}
+      {/*    {filteredPoints.length > 2 ? (*/}
+      {/*      filteredPoints.map((point) => (*/}
+      {/*        <ListItem key={point.id}>*/}
+      {/*          <Typography>{point.title}</Typography>*/}
+      {/*        </ListItem>*/}
+      {/*      ))*/}
+      {/*    ) : (*/}
+      {/*      <ListItem>*/}
+      {/*        <Typography color="text.secondary">*/}
+      {/*          Совпадений не найдено*/}
+      {/*        </Typography>*/}
+      {/*      </ListItem>*/}
+      {/*    )}*/}
+      {/*  </List>*/}
+      {/*)}*/}
     </Box>
   )
 }

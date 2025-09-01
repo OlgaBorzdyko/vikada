@@ -84,7 +84,7 @@ const MapComponent = ({
     if (!objects.isSuccess || !objects.data) return
     if (!vectorLayerRef.current) return
 
-    const pointsFromApi = objects.data.points.map((p) => ({
+    const pointsFromApi = objects.data.points?.map((p) => ({
       id: p.id,
       longitude: p.map_position.coordinates[0],
       latitude: p.map_position.coordinates[1]

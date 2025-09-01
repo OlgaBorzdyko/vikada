@@ -2,14 +2,13 @@ import { useMapStore } from '../../../store/MapStore'
 
 export const useTagSearch = (inputValue: string) => {
   const points = useMapStore((state) => state.points)
-  console.log('точки в сторе', points)
+  console.log('test point', points[0])
   if (!inputValue) return points
-
-  const lowerQuery = inputValue.toLowerCase()
-
   return points.filter(
     (point) =>
-      point.title.toLowerCase().includes(lowerQuery) ||
-      point.tags.some((tag) => tag.toLowerCase().includes(lowerQuery))
+      point.name?.toLowerCase().includes(inputValue.toLowerCase()) ||
+      point.tags?.some((tag) =>
+        tag.name?.toLowerCase().includes(inputValue.toLowerCase())
+      )
   )
 }
