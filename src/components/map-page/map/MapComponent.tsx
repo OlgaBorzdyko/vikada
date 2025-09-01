@@ -12,6 +12,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useMapObjects } from '../../../api/postMapObjects'
 import { useObjectContent } from '../../../api/postObjectContent'
 import { useMapStore } from '../../../store/MapStore'
+import { useGetTags } from '../search/useGetTags'
 import { getFeaturesFromPoints } from './getFeaturesFromPoints'
 import { getMapLonLat, MapLonLat } from './getMapLonLat'
 
@@ -28,6 +29,8 @@ const MapComponent = ({
   const objects = useMapObjects()
   const objectContentMutation = useObjectContent()
   const setVisiblePoints = useMapStore((state) => state.setPoints)
+
+  useGetTags()
 
   useEffect(() => {
     if (!mapRef.current || mapInstanceRef.current) return

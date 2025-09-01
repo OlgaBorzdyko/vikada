@@ -4,7 +4,7 @@ import { useState } from 'react'
 import TestComponent from './api/test'
 import Header from './components/Header'
 import MapComponent from './components/map-page/map/MapComponent'
-import SearchField from './components/map-page/search/SearchField'
+import SearchComponent from './components/map-page/search/SearchComponent'
 import TagInfoComponent from './components/map-page/tagInfo/TagInfoComponent'
 
 const MapPage = () => {
@@ -32,7 +32,7 @@ const MapPage = () => {
               zIndex: 1000
             }}
           >
-            <SearchField />
+            <SearchComponent />
           </Box>
           <MapComponent setIsOpen={setIsOpen} />
           <TagInfoComponent isOpen={isOpen} setIsOpen={setIsOpen} />
