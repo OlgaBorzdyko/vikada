@@ -1,7 +1,15 @@
-import { Box, Breadcrumbs, Container, Link, Typography } from '@mui/material'
+import {
+  AppBar,
+  Box,
+  Breadcrumbs,
+  Container,
+  Link,
+  Typography
+} from '@mui/material'
 import { useState } from 'react'
 
-import Header from './components/Header'
+import HeaderLocationBar from './components/header/HeaderLocationBar'
+import HeaderNavigation from './components/header/HeaderNavigation'
 import MapComponent from './components/map-page/map/MapComponent'
 import SearchComponent from './components/map-page/search/SearchComponent'
 import TagInfoComponent from './components/map-page/tagInfo/TagInfoComponent'
@@ -11,7 +19,10 @@ const MapPage = () => {
   return (
     <div style={{ position: 'relative' }}>
       <Container>
-        <Header />
+        <AppBar color="transparent" elevation={0} position="static">
+          <HeaderLocationBar />
+          <HeaderNavigation />
+        </AppBar>
         <Breadcrumbs
           aria-label="breadcrumb"
           separator="›"
