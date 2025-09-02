@@ -30,7 +30,8 @@ const MapComponent = ({
   const objectContentMutation = useObjectContent()
   const setVisiblePoints = useMapStore((state) => state.setPoints)
 
-  useGetTags()
+  const azaz = useGetTags()
+  console.log('azaz', azaz)
 
   useEffect(() => {
     if (!mapRef.current || mapInstanceRef.current) return
