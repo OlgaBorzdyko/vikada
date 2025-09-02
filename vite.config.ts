@@ -1,6 +1,6 @@
 import eslintPlugin from '@nabla/vite-plugin-eslint'
 import react from '@vitejs/plugin-react-swc'
-import path from 'path'
+import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import viteSvgr from 'vite-plugin-svgr'
 import tsconfigPaths from 'vite-tsconfig-paths'
@@ -15,17 +15,12 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/objects/, '')
       }
-      //   '/users': {
-      //     target: 'http://users.vkdapi.ru',
-      //     changeOrigin: true,
-      //     rewrite: (path) => path.replace(/^\/users/, '')
-      // }
-    },
-    resolve: {
-      alias: {
-        '@': path.resolve(__dirname, './src'),
-        '@mui/styled-engine': '@mui/styled-engine-sc'
-      }
+    }
+  },
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, 'src'),
+      '@mui/styled-engine': '@mui/styled-engine-sc'
     }
   }
 })

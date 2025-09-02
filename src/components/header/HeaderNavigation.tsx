@@ -1,7 +1,7 @@
 import { Box, Link, Toolbar, Typography } from '@mui/material'
 import { ReactNode } from 'react'
 
-// import LogoIcon from '@/assets/logo/Logo.svg?react'
+import LogoComponent from '../LogoComponent'
 
 interface HeaderNavigationProps {
   children?: ReactNode
@@ -30,26 +30,8 @@ const HeaderNavigation = ({ children }: HeaderNavigationProps) => {
               padding: '8px'
             }}
           >
-            {/*<LogoIcon*/}
-            {/*  style={{*/}
-            {/*    width: '12px',*/}
-            {/*    height: '16px',*/}
-            {/*    position: 'absolute',*/}
-            {/*    top: '50%',*/}
-            {/*    left: '50%',*/}
-            {/*    transform: 'translate(-50%, -50%)'*/}
-            {/*  }}*/}
-            {/*/>*/}
+            <LogoComponent />
           </Box>
-          <Typography
-            sx={{
-              color: 'primary.main',
-              flexGrow: 2
-            }}
-            variant="h1"
-          >
-            Vikada
-          </Typography>
         </Box>
         <Box sx={{ display: 'flex', gap: 5 }}>
           <Link href="/" underline="none">
