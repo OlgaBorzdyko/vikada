@@ -1,9 +1,13 @@
 import { Box, Link, Toolbar, Typography } from '@mui/material'
+import { ReactNode } from 'react'
 
 // import LogoIcon from '@/assets/logo/Logo.svg?react'
-import ProfileButton from '../profile/ProfileButton'
 
-const HeaderNavigation = () => {
+interface HeaderNavigationProps {
+  children?: ReactNode
+}
+
+const HeaderNavigation = ({ children }: HeaderNavigationProps) => {
   return (
     <>
       <Toolbar
@@ -68,9 +72,7 @@ const HeaderNavigation = () => {
               О нас
             </Typography>
           </Link>
-        </Box>
-        <Box>
-          <ProfileButton />
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>{children}</Box>
         </Box>
       </Toolbar>
     </>

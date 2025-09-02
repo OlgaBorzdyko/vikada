@@ -1,5 +1,6 @@
 import { AppBar, Box, Typography } from '@mui/material'
 
+import HeaderButton from '../header/HeaderButton'
 import HeaderLocationBar from '../header/HeaderLocationBar'
 import HeaderNavigation from '../header/HeaderNavigation'
 
@@ -20,9 +21,18 @@ const HomePage = () => {
           flexDirection: 'column'
         }}
       >
-        <HeaderNavigation />
+        <Box display="flex" flexDirection="row">
+          <HeaderNavigation>
+            <HeaderButton label={'Войти'} to={'/auth'} />
+          </HeaderNavigation>
+        </Box>
         <Box>
-          <Typography variant="h4">main</Typography>
+          <Typography variant="h4">
+            Поиск компании для отдыха с Vikada
+          </Typography>
+          <Typography variant="h4">
+            Найди новых друзей и зарядись эмоциями
+          </Typography>
         </Box>
       </Box>
     </Box>

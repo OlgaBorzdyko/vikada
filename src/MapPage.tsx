@@ -13,6 +13,7 @@ import HeaderNavigation from './components/header/HeaderNavigation'
 import MapComponent from './components/map-page/map/MapComponent'
 import SearchComponent from './components/map-page/search/SearchComponent'
 import TagInfoComponent from './components/map-page/tagInfo/TagInfoComponent'
+import ProfileButton from './components/profile/ProfileButton'
 
 const MapPage = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -21,7 +22,9 @@ const MapPage = () => {
       <Container>
         <AppBar color="transparent" elevation={0} position="static">
           <HeaderLocationBar />
-          <HeaderNavigation />
+          <HeaderNavigation>
+            <ProfileButton />
+          </HeaderNavigation>
         </AppBar>
         <Breadcrumbs
           aria-label="breadcrumb"
