@@ -5,7 +5,7 @@ import HeaderNavigation from '../header/HeaderNavigation'
 
 const HomePage = () => {
   return (
-    <Box display="flex" flexDirection="column" height="100vh">
+    <Box display="flex" flexDirection="column" height="100vh" width="auto">
       <AppBar color="transparent" elevation={0} position="static" />
       <HeaderLocationBar />
 
