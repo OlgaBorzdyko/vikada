@@ -16,7 +16,7 @@ const HeaderNavigation = ({ children }: HeaderNavigationProps) => {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          padding: '22px 0 44px'
+          pt: (theme) => theme.fn.clampVW(24, 16, 48)
         }}
       >
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>

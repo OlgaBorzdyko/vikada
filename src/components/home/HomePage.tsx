@@ -31,13 +31,24 @@ const HomePage = () => {
               <HeaderButton label={'Войти'} to={'/auth'} />
             </HeaderNavigation>
           </Box>
-          <Box>
-            <Typography variant="h4">
-              Поиск компании для отдыха с Vikada
-            </Typography>
-            <Typography variant="h4">
-              Найди новых друзей и зарядись эмоциями
-            </Typography>
+          <Box
+            sx={{
+              pt: (theme) => theme.fn.clampVW(84, 16, 84),
+              pb: (theme) => theme.fn.clampVW(20, 16, 20),
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'space-between'
+            }}
+          >
+            <Box>
+              <Typography variant="h4">
+                Поиск компании для отдыха с Vikada
+              </Typography>
+              <Typography variant="h4">
+                Найди новых друзей и зарядись эмоциями
+              </Typography>
+            </Box>
           </Box>
         </Box>
       </Box>
