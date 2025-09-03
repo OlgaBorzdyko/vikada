@@ -8,7 +8,8 @@ const HeaderLocationBar = () => {
       <Toolbar
         sx={{
           minHeight: '32px !important',
-          borderBottom: '1px solid #E1E1E1'
+          borderBottom: '1px solid #E1E1E1',
+          px: (theme) => theme.fn.clampVW(72, 16, 72)
         }}
       >
         {/*<LocationIcon*/}
