@@ -10,6 +10,7 @@ import {
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
+// import LogoComponent from '../LogoComponent'
 import PasswordChecking from './PasswordChecking'
 import { registrationSchema } from './RegistrationSchema'
 

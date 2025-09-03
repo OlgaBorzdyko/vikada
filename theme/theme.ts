@@ -1,5 +1,10 @@
 import { createTheme } from '@mui/material/styles'
 
+const DESIGN_WIDTH = 1440
+
+const clampVW = (px: number, minPx = 16, maxPx = px) =>
+  `clamp(${minPx}px, ${(px / DESIGN_WIDTH) * 100}vw, ${maxPx}px)`
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -16,7 +21,7 @@ const theme = createTheme({
 
   typography: {
     fontFamily: `'Rubik', sans-serif`,
-    fontSize: 14, //basic
+    fontSize: 14,
 
     body1: {
       fontSize: '14px',
@@ -59,30 +64,44 @@ const theme = createTheme({
       defaultProps: {
         disableGutters: true
       }
-    }
-  },
-
-  MuiCssBaseline: {
-    styleOverrides: {
-      body: {
-        fontFamily: `'Rubik', sans-serif`,
-        fontWeight: 400,
-        fontSize: '14px',
-        lineHeight: '16px',
-        color: '#000',
-        backgroundColor: '#fff'
-      },
-      '*': {
-        boxSizing: 'border-box'
-      },
-      '*::before': {
-        boxSizing: 'border-box'
-      },
-      '*::after': {
-        boxSizing: 'border-box'
+    },
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          fontFamily: `'Rubik', sans-serif`,
+          fontWeight: 400,
+          fontSize: '14px',
+          lineHeight: '16px',
+          color: '#000',
+          backgroundColor: '#fff'
+        },
+        '*': {
+          boxSizing: 'border-box'
+        },
+        '*::before': {
+          boxSizing: 'border-box'
+        },
+        '*::after': {
+          boxSizing: 'border-box'
+        }
       }
     }
   }
 })
+
+declare module '@mui/material/styles' {
+  interface Theme {
+    fn: {
+      clampVW: (px: number, minPx?: number, maxPx?: number) => string
+    }
+  }
+  interface ThemeOptions {
+    fn?: {
+      clampVW?: (px: number, minPx?: number, maxPx?: number) => string
+    }
+  }
+}
+
+theme.fn = { clampVW }
 
 export default theme
