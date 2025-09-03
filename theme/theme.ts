@@ -5,6 +5,19 @@ const DESIGN_WIDTH = 1440
 const clampVW = (px: number, minPx = 16, maxPx = px) =>
   `clamp(${minPx}px, ${(px / DESIGN_WIDTH) * 100}vw, ${maxPx}px)`
 
+declare module '@mui/material/styles' {
+  interface Theme {
+    fn: {
+      clampVW: (px: number, minPx?: number, maxPx?: number) => string
+    }
+  }
+  interface ThemeOptions {
+    fn?: {
+      clampVW?: (px: number, minPx?: number, maxPx?: number) => string
+    }
+  }
+}
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -86,22 +99,11 @@ const theme = createTheme({
         }
       }
     }
+  },
+
+  fn: {
+    clampVW
   }
 })
-
-declare module '@mui/material/styles' {
-  interface Theme {
-    fn: {
-      clampVW: (px: number, minPx?: number, maxPx?: number) => string
-    }
-  }
-  interface ThemeOptions {
-    fn?: {
-      clampVW?: (px: number, minPx?: number, maxPx?: number) => string
-    }
-  }
-}
-
-theme.fn = { clampVW }
 
 export default theme

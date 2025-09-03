@@ -21,18 +21,24 @@ const HomePage = () => {
           flexDirection: 'column'
         }}
       >
-        <Box display="flex" flexDirection="row">
-          <HeaderNavigation>
-            <HeaderButton label={'Войти'} to={'/auth'} />
-          </HeaderNavigation>
-        </Box>
-        <Box>
-          <Typography variant="h4">
-            Поиск компании для отдыха с Vikada
-          </Typography>
-          <Typography variant="h4">
-            Найди новых друзей и зарядись эмоциями
-          </Typography>
+        <Box
+          sx={{
+            px: (theme) => theme.fn.clampVW(72, 16, 72)
+          }}
+        >
+          <Box display="flex" flexDirection="row">
+            <HeaderNavigation>
+              <HeaderButton label={'Войти'} to={'/auth'} />
+            </HeaderNavigation>
+          </Box>
+          <Box>
+            <Typography variant="h4">
+              Поиск компании для отдыха с Vikada
+            </Typography>
+            <Typography variant="h4">
+              Найди новых друзей и зарядись эмоциями
+            </Typography>
+          </Box>
         </Box>
       </Box>
     </Box>
