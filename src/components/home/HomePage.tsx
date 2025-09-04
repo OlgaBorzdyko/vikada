@@ -43,9 +43,17 @@ const HomePage = () => {
           >
             <Box>
               <Typography variant="h4">
-                Поиск компании для отдыха с Vikada
+                Поиск компании для отдыха с{' '}
+                <Typography color="primary.main" component="span" variant="h4">
+                  Vikada
+                </Typography>
               </Typography>
-              <Typography variant="h4">
+              <Typography
+                sx={{
+                  mt: (theme) => theme.fn.clampVW(16, 8, 24)
+                }}
+                variant="h5"
+              >
                 Найди новых друзей и зарядись эмоциями
               </Typography>
             </Box>
