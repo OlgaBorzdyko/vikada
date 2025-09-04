@@ -1,31 +1,25 @@
 import { Box, Typography } from '@mui/material'
 
-import LogoIcon from '@/assets/logo/Logo.svg?react'
+import LogoIconComponent from './LogoIconComponent'
 
 const LogoComponent = () => {
   return (
     <Box>
-      <Box>
-        <LogoIcon
-          style={{
-            width: '12px',
-            height: '16px',
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)'
-          }}
-        />
-      </Box>
-      <Typography
-        sx={{
-          color: 'primary.main',
-          flexGrow: 2
-        }}
-        variant="h1"
+      <Box
+        display="flex"
+        flexDirection="row"
+        sx={{ gap: (theme) => theme.fn.clampVW(6, 6, 6) }}
       >
-        Vikada
-      </Typography>
+        <LogoIconComponent />
+        <Typography
+          sx={{
+            color: 'primary.main'
+          }}
+          variant="h1"
+        >
+          Vikada
+        </Typography>
+      </Box>
     </Box>
   )
 }

@@ -26,9 +26,9 @@ const HomePage = () => {
             px: (theme) => theme.fn.clampVW(72, 16, 72)
           }}
         >
-          <Box display="flex" flexDirection="row">
+          <Box>
             <HeaderNavigation>
-              <HeaderButton label={'Войти'} to={'/auth'} />
+              <HeaderButton label="Войти" to="/auth" />
             </HeaderNavigation>
           </Box>
           <Box
