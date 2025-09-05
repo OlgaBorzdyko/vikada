@@ -11,19 +11,33 @@ const HomePage = () => {
       <HeaderLocationBar />
 
       <Box
+        display="flex"
+        flexDirection="column"
         flexGrow={1}
-        sx={{
-          backgroundImage: "url('/main-screen.jpg')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          display: 'flex',
-          flexDirection: 'column'
-        }}
+        position="relative"
       >
         <Box
+          alt="Main screen"
+          component="img"
+          src="/main-screen.jpg"
           sx={{
-            px: (theme) => theme.fn.clampVW(72, 16, 72)
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            zIndex: 0
+          }}
+        />
+
+        <Box
+          sx={{
+            position: 'relative',
+            zIndex: 1,
+            px: (theme) => theme.fn.clampVW(72, 16, 72),
+            height: '100%',
+            display: 'flex',
+            flexDirection: 'column'
           }}
         >
           <Box>
@@ -31,6 +45,7 @@ const HomePage = () => {
               <HeaderButton label="Войти" to="/auth" />
             </HeaderNavigation>
           </Box>
+
           <Box
             sx={{
               pt: (theme) => theme.fn.clampVW(84, 16, 84),
@@ -38,10 +53,10 @@ const HomePage = () => {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              justifyContent: 'space-between'
+              flexGrow: 1
             }}
           >
-            <Box>
+            <Box textAlign="left">
               <Typography variant="h4">
                 Поиск компании для отдыха с{' '}
                 <Typography color="primary.main" component="span" variant="h4">
