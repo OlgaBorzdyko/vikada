@@ -1,36 +1,37 @@
-import Box from '@mui/material/Box'
-import ImageList from '@mui/material/ImageList'
-import ImageListItem from '@mui/material/ImageListItem'
+import { Box, useTheme } from '@mui/material'
 
 import { itemData } from './imagesArray'
 
 const ImagesList = () => {
-  const srcset = (image: string, size: number, rows = 1, cols = 1) => {
-    return {
-      src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
-      srcSet: `${image}?w=${size * cols}&h=${
-        size * rows
-      }&fit=crop&auto=format&dpr=2 2x`
-    }
-  }
+  const theme = useTheme()
+
+  const squareSize = theme.fn.clampVW(140, 100, 180)
+  const rightCol = theme.fn.clampVW(180, 120, 220)
+
   return (
-    <Box>
-      <ImageList cols={3} gap={12} rowHeight={183} variant="quilted">
-        {itemData.map((item) => (
-          <ImageListItem
-            cols={item.cols || 1}
-            key={item.img}
-            rows={item.rows || 1}
-          >
-            <img
-              {...srcset(item.img, 121, item.rows, item.cols)}
-              alt={item.title}
-              loading="lazy"
-              style={{ borderRadius: '12px' }}
-            />
-          </ImageListItem>
-        ))}
-      </ImageList>
+    <Box
+      display="grid"
+      gap={theme.fn.clampVW(16, 8, 24)}
+      gridTemplateColumns={`${squareSize} 1fr ${rightCol}`}
+      gridTemplateRows={`${squareSize} ${squareSize} ${rightCol}`}
+      width="100%"
+    >
+      {itemData.map((item, index) => (
+        <Box
+          alt={item.title}
+          component="img"
+          key={index}
+          src={item.img}
+          sx={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            borderRadius: theme.fn.clampVW(12, 6, 16),
+            gridColumn: item.gridColumn,
+            gridRow: item.gridRow
+          }}
+        />
+      ))}
     </Box>
   )
 }

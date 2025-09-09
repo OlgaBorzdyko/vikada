@@ -75,6 +75,13 @@ const theme = createTheme({
       fontSize: clampFont(32, 24, 40),
       lineHeight: '100%',
       color: '#4F4F4F'
+    },
+    h6: {
+      fontWeight: 400,
+      fontStyle: 'normal',
+      fontSize: clampFont(18, 16, 24),
+      lineHeight: clampFont(24, 20, 28),
+      letterSpacing: '0%'
     }
   },
 
