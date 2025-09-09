@@ -65,14 +65,14 @@ const theme = createTheme({
     h4: {
       fontWeight: 600,
       fontStyle: 'Medium',
-      fontSize: clampFont(48, 32, 64),
+      fontSize: clampFont(48, 24, 64),
       lineHeight: '100%',
       color: '#4F4F4F'
     },
     h5: {
       fontWeight: 500,
       fontStyle: 'Regular',
-      fontSize: clampFont(32, 24, 40),
+      fontSize: clampFont(32, 14, 40),
       lineHeight: '100%',
       color: '#4F4F4F'
     },

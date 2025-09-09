@@ -47,7 +47,13 @@ const HomePage = () => {
               flexGrow: 1
             }}
           >
-            <Box textAlign="left">
+            <Box
+              sx={{
+                alignItems: { xs: 'center', md: 'flex-start' },
+                flexGrow: 1,
+                textAlign: { xs: 'center', md: 'left' }
+              }}
+            >
               <Typography variant="h4">
                 Поиск компании для отдыха с{' '}
                 <Typography color="primary.main" component="span" variant="h4">
