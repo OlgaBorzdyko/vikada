@@ -3,6 +3,7 @@ import { Box, Button, Drawer, IconButton } from '@mui/material'
 import { useState } from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 
+import CloseIcon from '@/assets/icons/CloseIcon.svg?react'
 import LoginIcon from '@/assets/icons/LoginIcon.svg?react'
 
 import LogoIconComponent from '../LogoIconComponent' // мобильная иконка
@@ -57,6 +58,11 @@ const Header = () => {
         open={open}
       >
         <Box display="flex" flexDirection="column" gap={2} height="100%" p={2}>
+          <Box display="flex" justifyContent="flex-end">
+            <IconButton onClick={() => setOpen(false)}>
+              <CloseIcon />
+            </IconButton>
+          </Box>
           <HeaderLocationBar />
           <HeaderNavigation />
         </Box>
