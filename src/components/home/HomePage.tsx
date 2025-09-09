@@ -1,15 +1,12 @@
 import { AppBar, Box, Typography } from '@mui/material'
 
-import HeaderButton from '../header/HeaderButton'
-import HeaderLocationBar from '../header/HeaderLocationBar'
-import HeaderNavigation from '../header/HeaderNavigation'
+import Header from '../header/Header' // наш новый адаптивный Header
 
 const HomePage = () => {
   return (
     <Box display="flex" flexDirection="column" height="100vh" width="auto">
       <AppBar color="transparent" elevation={0} position="static" />
-      <HeaderLocationBar />
-
+      <Header />
       <Box
         display="flex"
         flexDirection="column"
@@ -40,12 +37,6 @@ const HomePage = () => {
             flexDirection: 'column'
           }}
         >
-          <Box>
-            <HeaderNavigation>
-              <HeaderButton label="Войти" to="/auth" />
-            </HeaderNavigation>
-          </Box>
-
           <Box
             sx={{
               pt: (theme) => theme.fn.clampVW(84, 16, 84),
