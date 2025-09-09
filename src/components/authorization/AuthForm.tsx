@@ -58,10 +58,10 @@ const AuthForm = () => {
       <TextField
         error={!!errors.email}
         {...register('email')}
+        fullWidth
         helperText={errors.email?.message}
         label="Почта"
         variant="outlined"
-        fullWidth
       />
 
       <TextField
