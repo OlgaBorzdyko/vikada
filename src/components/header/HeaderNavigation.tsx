@@ -10,25 +10,29 @@ interface HeaderNavigationProps {
 const HeaderNavigation = ({ children }: HeaderNavigationProps) => {
   return (
     <Toolbar
-      sx={{
-        pt: (theme) => theme.fn.clampVW(24, 16, 48),
+      sx={(theme) => ({
+        pt: theme.fn.clampVW(24, 16, 48),
         display: 'flex',
-        alignItems: 'center',
         justifyContent: 'space-between',
-        gap: 2
-      }}
+        gap: 2,
+        flexDirection: { xs: 'column', md: 'row' },
+        alignItems: { xs: 'flex-start', md: 'center' }
+      })}
     >
-      <Box>
+      <Box sx={{ mb: { xs: 2, md: 0 } }}>
         <LogoComponent />
       </Box>
 
       <Box
-        sx={{
+        sx={() => ({
           display: 'flex',
           gap: 5,
           flexGrow: 1,
-          justifyContent: 'center'
-        }}
+          justifyContent: { xs: 'flex-start', md: 'center' },
+          flexDirection: { xs: 'column', md: 'row' },
+          width: { xs: '100%', md: 'auto' },
+          '& a': { mb: { xs: 1, md: 0 } }
+        })}
       >
         <Link href="/" underline="none">
           <Typography color="text.primary" variant="h1">
@@ -52,7 +56,7 @@ const HeaderNavigation = ({ children }: HeaderNavigationProps) => {
         </Link>
       </Box>
 
-      <Box sx={{ flexShrink: 0 }}>{children}</Box>
+      <Box sx={{ flexShrink: 0, mt: { xs: 2, md: 0 } }}>{children}</Box>
     </Toolbar>
   )
 }
