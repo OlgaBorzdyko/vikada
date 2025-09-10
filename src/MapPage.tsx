@@ -17,15 +17,18 @@ const MapPage = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const theme = useTheme()
 
+  const paddingX = { md: theme.fn.clampVW(72, 16, 72) }
+  const paddingBottom = theme.fn.clampVW(42, 16, 42)
+
   return (
-    <Box sx={{ position: 'relative' }}>
+    <Box sx={{ position: 'relative', width: '100%' }}>
       {/* header */}
       <AppBar
         color="transparent"
         elevation={0}
         position="static"
         sx={{
-          px: theme.fn.clampVW(72, 16, 72),
+          px: paddingX,
           pt: theme.fn.clampVW(24, 12, 32)
         }}
       >
@@ -36,8 +39,8 @@ const MapPage = () => {
       <Box
         sx={{
           display: { xs: 'none', md: 'block' },
-          px: theme.fn.clampVW(72, 16, 72),
-          pb: theme.fn.clampVW(24, 12, 32),
+          px: paddingX,
+          pb: paddingBottom,
           alignItems: { xs: 'center', md: 'flex-start' },
           flexGrow: 1
         }}
@@ -60,14 +63,18 @@ const MapPage = () => {
             md: `calc(100vh - ${theme.fn.clampVW(200, 160, 240)})`
           },
           borderRadius: { xs: 0, md: theme.fn.clampVW(12, 0, 12) },
-          overflow: 'hidden'
+          overflow: 'hidden',
+          px: paddingX
         }}
       >
         <Box
           sx={{
             position: 'absolute',
             top: theme.fn.clampVW(16, 8, 24),
-            left: theme.fn.clampVW(16, 8, 24),
+            left: 0,
+            right: 0,
+            display: 'flex',
+            justifyContent: { xs: 'center', md: 'flex-start' },
             zIndex: 1000
           }}
         >
