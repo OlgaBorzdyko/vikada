@@ -1,5 +1,7 @@
 import 'ol/ol.css'
 
+import { Box } from '@mui/material'
+import { defaults as defaultControls, Zoom } from 'ol/control'
 import TileLayer from 'ol/layer/Tile'
 import VectorLayer from 'ol/layer/Vector'
 import Map from 'ol/Map'
@@ -46,7 +48,15 @@ const MapComponent = ({
       view: new View({
         center: fromLonLat([32.053102, 54.781888]),
         zoom: 16
-      })
+      }),
+      controls: defaultControls({
+        zoom: false,
+        attribution: true
+      }).extend([
+        new Zoom({
+          className: 'custom-zoom'
+        })
+      ])
     })
 
     const vectorSource = new VectorSource()
@@ -103,13 +113,26 @@ const MapComponent = ({
   }, [objects.isSuccess, objects.data])
 
   return (
-    <div
+    <Box
       ref={mapRef}
-      style={{
+      sx={{
         width: '100%',
-        height: 'calc(100vh - 221.33px)',
-        borderRadius: 12,
-        overflow: 'hidden'
+        height: { xs: '100vh', md: 'calc(100vh - 220px)' },
+        borderRadius: { xs: 0, md: 2 },
+        overflow: 'hidden',
+        position: 'relative',
+        '& .custom-zoom': {
+          right: { xs: 8, md: 16 },
+          top: { xs: 80, md: 16 },
+          backgroundColor: 'white',
+          borderRadius: 1,
+          boxShadow: 1,
+          '& button': {
+            width: { xs: 48, md: 56 },
+            height: { xs: 48, md: 56 },
+            fontSize: { xs: 24, md: 28 }
+          }
+        }
       }}
     />
   )
