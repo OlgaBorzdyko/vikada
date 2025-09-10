@@ -33,19 +33,22 @@ const MapPage = () => {
       </AppBar>
 
       {/* breadcrumbs */}
-      <Breadcrumbs
-        aria-label="breadcrumb"
-        separator="›"
+      <Box
         sx={{
+          display: { xs: 'none', md: 'block' },
           px: theme.fn.clampVW(72, 16, 72),
-          pb: theme.fn.clampVW(24, 12, 32)
+          pb: theme.fn.clampVW(24, 12, 32),
+          alignItems: { xs: 'center', md: 'flex-start' },
+          flexGrow: 1
         }}
       >
-        <Link href="/">
-          <Typography color="text.secondary">Главная</Typography>
-        </Link>
-        <Typography color="text.secondary">Карты</Typography>
-      </Breadcrumbs>
+        <Breadcrumbs aria-label="breadcrumb" separator="›">
+          <Link href="/">
+            <Typography color="text.secondary">Главная</Typography>
+          </Link>
+          <Typography color="text.secondary">Карты</Typography>
+        </Breadcrumbs>
+      </Box>
 
       {/* map */}
       <Box
