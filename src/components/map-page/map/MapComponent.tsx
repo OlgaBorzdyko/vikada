@@ -116,11 +116,11 @@ const MapComponent = ({
     <Box
       ref={mapRef}
       sx={{
+        position: 'relative',
         width: '100%',
         height: { xs: '100vh', md: 'calc(100vh - 220px)' },
         borderRadius: { xs: 0, md: 2 },
         overflow: 'hidden',
-        position: 'relative',
         '& .custom-zoom': {
           right: { xs: 8, md: 16 },
           top: { xs: 80, md: 16 },

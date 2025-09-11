@@ -53,36 +53,37 @@ const MapPage = () => {
         </Breadcrumbs>
       </Box>
 
-      {/* map */}
-      <Box
-        sx={{
-          position: 'relative',
-          width: '100%',
-          height: {
-            xs: '100vh',
-            md: `calc(100vh - ${theme.fn.clampVW(200, 160, 240)})`
-          },
-          borderRadius: { xs: 0, md: theme.fn.clampVW(12, 0, 12) },
-          overflow: 'hidden',
-          px: paddingX
-        }}
-      >
+      <Box sx={{ px: paddingX }}>
         <Box
           sx={{
-            position: 'absolute',
-            top: theme.fn.clampVW(16, 8, 24),
-            left: 0,
-            right: 0,
-            display: 'flex',
-            justifyContent: { xs: 'center', md: 'flex-start' },
-            zIndex: 1000
+            position: 'relative',
+            width: '100%',
+            height: {
+              xs: '100vh',
+              md: `calc(100vh - ${theme.fn.clampVW(200, 160, 240)})`
+            },
+            borderRadius: { xs: 0, md: theme.fn.clampVW(12, 0, 12) },
+            overflow: 'hidden'
           }}
         >
-          <SearchComponent />
-        </Box>
+          <Box
+            sx={{
+              position: 'absolute',
+              top: { xs: 16, md: 40 },
+              left: { xs: 16, md: 40 },
+              zIndex: 1000,
+              backgroundColor: 'white',
+              borderRadius: 1,
+              boxShadow: 3,
+              width: { xs: 'calc(100% - 32px)', md: '300px' }
+            }}
+          >
+            <SearchComponent />
+          </Box>
 
-        <MapComponent setIsOpen={setIsOpen} />
-        <TagInfoComponent isOpen={isOpen} setIsOpen={setIsOpen} />
+          <MapComponent setIsOpen={setIsOpen} />
+          <TagInfoComponent isOpen={isOpen} setIsOpen={setIsOpen} />
+        </Box>
       </Box>
     </Box>
   )

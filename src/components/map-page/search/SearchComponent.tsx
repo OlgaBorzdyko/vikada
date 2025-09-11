@@ -10,6 +10,7 @@ const SearchComponent = () => {
   return (
     <Box
       sx={{
+        position: 'absolute',
         width: { xs: '100vw', sm: '400px', md: '300px' },
         px: { xs: 2, sm: 0 }
       }}

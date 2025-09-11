@@ -10,7 +10,7 @@ const SearchField = ({
   return (
     <Box
       sx={{
-        width: { xs: '100%', sm: '400px', md: '300px' },
+        width: { xs: '100%', sm: '400px', md: '300px', position: 'absolute' },
         px: { xs: 2, sm: 0 }
       }}
     >
